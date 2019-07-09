@@ -1,0 +1,284 @@
+﻿<wincor:MvvmWindow x:Class="AssemblyDefender.UI.Shell.ShellWindow"
+				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				xmlns:wincor="clr-namespace:AssemblyDefender.UI;assembly=AssemblyDefender.UI"
+				xmlns:shell="clr-namespace:AssemblyDefender.UI.Shell"
+				xmlns:startPage="clr-namespace:AssemblyDefender.UI.Shell.StartPage"
+				xmlns:project="clr-namespace:AssemblyDefender.UI.Shell.Project"
+				xmlns:model="clr-namespace:AssemblyDefender.UI.Model;assembly=AssemblyDefender.UI.Model"
+				xmlns:startPageModel="clr-namespace:AssemblyDefender.UI.Model.StartPage;assembly=AssemblyDefender.UI.Model"
+				xmlns:projectModel="clr-namespace:AssemblyDefender.UI.Model.Project;assembly=AssemblyDefender.UI.Model"
+				Title="{Binding WindowTitle, Mode=OneWay}"
+				Background="{StaticResource ShellBackground}"
+				Width="1024" Height="768" MinWidth="200" MinHeight="200"
+				Icon="{StaticResource LogoIcon_ImageSource}"
+				ResizeMode="CanResizeWithGrip"
+				  UseLayoutRounding="true">
+	<Window.InputBindings>
+		<KeyBinding Key="N" Modifiers="Control"
+                    Command="{x:Static model:Commands.New}"/>
+		<KeyBinding Key="O" Modifiers="Control"
+                    Command="{x:Static model:Commands.Open}"/>
+		<KeyBinding Key="S" Modifiers="Control"
+                    Command="{x:Static model:Commands.Save}"
+                    CommandParameter="{wincor:BoolValue False}"/>
+		<KeyBinding Key="F" Modifiers="Control"
+                    Command="{x:Static model:Commands.ViewSearch}" />
+		<KeyBinding Key="N" Modifiers="Control+Shift"
+                    Command="{x:Static model:Commands.AddAssembly}" />
+		<KeyBinding Key="Del"
+                    Command="{x:Static model:Commands.RemoveAssembly}" />
+		<KeyBinding Key="Left" Modifiers="Alt"
+                    Command="{x:Static model:Commands.GoBack}" />
+		<KeyBinding Key="Right" Modifiers="Alt"
+                    Command="{x:Static model:Commands.GoForward}" />
+		<KeyBinding Key="F5"
+                    Command="{x:Static model:Commands.Build}"/>
+		<KeyBinding Key="F1"
+                    Command="{x:Static model:Commands.GoWeb}"
+					CommandParameter="{x:Static model:Constants.WebSiteSupport}"/>
+	</Window.InputBindings>
+	<DockPanel>
+		<DockPanel DockPanel.Dock="Top">
+			<Menu DockPanel.Dock="Top"
+                  BorderThickness="0"
+                  BorderBrush="{StaticResource BorderColor}"
+                  Background="{StaticResource MenuBackground}">
+				<MenuItem Header="{x:Static model:SR.FileMenu}">
+					<MenuItem Command="{x:Static model:Commands.New}"
+                          Header="{x:Static model:SR.NewMenu}"
+                          InputGestureText="{x:Static model:SR.ControlN}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource New_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Command="{x:Static model:Commands.Open}"
+                          Header="{x:Static model:SR.OpenMenu}"
+                          InputGestureText="{x:Static model:SR.ControlO}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource Open_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Command="{x:Static model:Commands.Save}"
+                          CommandParameter="{wincor:BoolValue False}"
+                          Header="{x:Static model:SR.SaveMenu}"
+                          InputGestureText="{x:Static model:SR.ControlS}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource Save_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Command="{x:Static model:Commands.Save}"
+                          CommandParameter="{wincor:BoolValue True}"
+                          Header="{x:Static model:SR.SaveAsMenu}" />
+					<Separator />
+					<MenuItem Header="{x:Static model:SR.RecentProjectsMenu}" DataContext="{Binding ProjectMRUList, Mode=OneTime}"
+							ItemsSource="{Binding Items, Mode=OneWay}" IsEnabled="{Binding HasItems, Mode=OneWay}">
+						<MenuItem.ItemContainerStyle>
+							<Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource {x:Type MenuItem}}">
+								<Setter Property="Header" Value="{Binding Text}" />
+								<Setter Property="Command" Value="{Binding Command}" />
+								<Setter Property="CommandParameter" Value="{Binding CommandParameter}" />
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding IsSeparator, Mode=OneTime}" Value="True">
+										<Setter Property="MenuItem.Template">
+											<Setter.Value>
+												<ControlTemplate TargetType="{x:Type MenuItem}">
+													<Separator Style="{DynamicResource {x:Static MenuItem.SeparatorStyleKey}}" />
+												</ControlTemplate>
+											</Setter.Value>
+										</Setter>
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</MenuItem.ItemContainerStyle>
+					</MenuItem>
+					<Separator />
+					<MenuItem Command="{x:Static model:Commands.Exit}"
+                          Header="{x:Static model:SR.ExitMenu}"
+                          InputGestureText="{x:Static model:SR.AltF4}" />
+				</MenuItem>
+				<MenuItem Header="{x:Static model:SR.ViewMenu}">
+					<MenuItem Command="{x:Static model:Commands.GoBack}"
+                              Header="{x:Static model:SR.GoBackMenu}"
+                              InputGestureText="{x:Static model:SR.AltLeft}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource ArrowBackward_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Command="{x:Static model:Commands.GoForward}"
+                              Header="{x:Static model:SR.GoForwardMenu}"
+                              InputGestureText="{x:Static model:SR.AltRight}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource ArrowForward_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<Separator />
+					<MenuItem Command="{x:Static model:Commands.CollapseAll}"
+                              Header="{x:Static model:SR.CollapseAll}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource CollapseList_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Command="{x:Static model:Commands.ViewSearch}"
+                              Header="{x:Static model:SR.ViewSearchMenu}"
+                              InputGestureText="{x:Static model:SR.ControlF}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource Search_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Command="{x:Static model:Commands.ViewDecodeStackTrace}"
+                              Header="{x:Static model:SR.DecodeStackTrace}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource DecodeStackTrace_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Command="{x:Static model:Commands.ViewStartPage}"
+                          Header="{x:Static model:SR.StartPage}" />
+					<Separator />
+					<MenuItem Command="{x:Static model:Commands.Refresh}"
+                              Header="{x:Static model:SR.RefreshMenu}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource Refresh_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+				</MenuItem>
+				<MenuItem Header="{x:Static model:SR.ProjectMenu}">
+					<MenuItem Command="{x:Static model:Commands.AddAssembly}"
+                          Header="{x:Static model:SR.AddAssembly}"
+                          InputGestureText="{x:Static model:SR.ControlShiftN}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource Node_Assembly_Add_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<MenuItem Command="{x:Static model:Commands.Build}"
+                          Header="{x:Static model:SR.BuildProjectMenu}"
+                          InputGestureText="{x:Static model:SR.F5}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource Compile_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+				</MenuItem>
+				<MenuItem Header="{x:Static model:SR.HelpMenu}">
+					<MenuItem Command="{x:Static model:Commands.GoWeb}"
+							  CommandParameter="{x:Static model:Constants.WebSiteSupport}"
+							  Header="{x:Static model:SR.OnlineHelp}"
+							  InputGestureText="{x:Static model:SR.F1}">
+						<MenuItem.Icon>
+							<Image Source="{StaticResource Help_ImageSource}" Width="16" Height="16" />
+						</MenuItem.Icon>
+					</MenuItem>
+					<Separator />
+					<MenuItem Command="{x:Static model:Commands.About}"
+                          Header="{x:Static model:SR.AboutMenu}" />
+				</MenuItem>
+			</Menu>
+			<Grid SnapsToDevicePixels="true" DockPanel.Dock="Top">
+				<Rectangle Height="1"
+                            Margin="0,0,0,1"
+                            Fill="#B5B5B5"/>
+				<Rectangle Height="1"
+                            Margin="0,1,0,0"
+                            Fill="White"/>
+			</Grid>
+			<ToolBar DockPanel.Dock="Top"
+                     ToolBarTray.IsLocked="True"
+                     Background="{StaticResource ToolBarBackground}">
+				<Button Command="{x:Static model:Commands.New}"
+						ToolTip="{x:Static model:SR.NewToolTip}">
+					<Button.Content>
+						<Image Source="{StaticResource New_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+				<Button Command="{x:Static model:Commands.Open}"
+						ToolTip="{x:Static model:SR.OpenToolTip}">
+					<Button.Content>
+						<Image Source="{StaticResource Open_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+				<Button Command="{x:Static model:Commands.Save}"
+                        CommandParameter="{wincor:BoolValue False}"
+                        ToolTip="{x:Static model:SR.SaveToolTip}">
+					<Button.Content>
+						<Image Source="{StaticResource Save_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+				<Button Command="{x:Static model:Commands.AddAssembly}"
+                        ToolTip="{x:Static model:SR.AddAssemblyToolTip}">
+					<Button.Content>
+						<Image Source="{StaticResource Node_Assembly_Add_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+				<Separator />
+				<Button Command="{x:Static model:Commands.GoBack}"
+                        ToolTip="{x:Static model:SR.GoBackToolTip}">
+					<Button.Content>
+						<Image Source="{StaticResource ArrowBackward_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+				<Button Command="{x:Static model:Commands.GoForward}"
+                        ToolTip="{x:Static model:SR.GoForwardToolTip}">
+					<Button.Content>
+						<Image Source="{StaticResource ArrowForward_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+				<Separator />
+				<Button Command="{x:Static model:Commands.Refresh}"
+                        ToolTip="{x:Static model:SR.Refresh}">
+					<Button.Content>
+						<Image Source="{StaticResource Refresh_ImageSource}" Width="16" Height="16" />
+					</Button.Content>
+				</Button>
+				<Button Command="{x:Static model:Commands.CollapseAll}"
+                        ToolTip="{x:Static model:SR.CollapseAll}">
+					<Button.Content>
+						<Image Source="{StaticResource CollapseList_ImageSource}" Width="16" Height="16" />
+					</Button.Content>
+				</Button>
+				<Button Command="{x:Static model:Commands.ViewSearch}"
+                        ToolTip="{x:Static model:SR.ViewSearchToolTip}">
+					<Button.Content>
+						<Image Source="{StaticResource Search_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+				<Button Command="{x:Static model:Commands.ViewDecodeStackTrace}"
+                        ToolTip="{x:Static model:SR.DecodeStackTrace}">
+					<Button.Content>
+						<Image Source="{StaticResource DecodeStackTrace_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+				<Button Command="{x:Static model:Commands.Build}"
+                        ToolTip="{x:Static model:SR.BuildProjectToolTip}">
+					<Button.Content>
+						<Image Source="{StaticResource Compile_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+				<Separator />
+				<Button Command="{x:Static model:Commands.GoWeb}"
+						CommandParameter="{x:Static model:Constants.WebSiteSupport}"
+						ToolTip="{x:Static model:SR.OnlineHelp}">
+					<Button.Content>
+						<Image Source="{StaticResource Help_ImageSource}" Width="16" Height="16"/>
+					</Button.Content>
+				</Button>
+			</ToolBar>
+		</DockPanel>
+		<shell:NotificationListView
+			DockPanel.Dock="Top"
+			DataContext="{Binding Notifications}">
+		</shell:NotificationListView>
+		<StatusBar DockPanel.Dock="Bottom"
+                   Height="Auto" MinHeight="22"
+                   Background="{StaticResource StatusBarBackground}">
+		</StatusBar>
+		<ContentControl Content="{Binding Workspace, Mode=OneWay}">
+			<ContentControl.Resources>
+                <DataTemplate DataType="{x:Type startPageModel:StartPageViewModel}">
+                    <startPage:StartPageView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type projectModel:ProjectShellViewModel}">
+					<project:ProjectShellView />
+				</DataTemplate>
+			</ContentControl.Resources>
+		</ContentControl>
+	</DockPanel>
+</wincor:MvvmWindow>

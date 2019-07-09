@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Assembler_DuplicateEntryPoint" xml:space="preserve">
+    <value>Duplicated EntryPoint tokens.</value>
+  </data>
+  <data name="AssemblyIdentityParseError" xml:space="preserve">
+    <value>Assembly '{0}' could not be loaded.</value>
+  </data>
+  <data name="AssemblyLoadError" xml:space="preserve">
+    <value>Assembly '{0}' could not be loaded.</value>
+  </data>
+  <data name="AssemblyNotFound" xml:space="preserve">
+    <value>Assembly '{0}' could not be found.</value>
+  </data>
+  <data name="AssemblyReferenceNotFoundByName" xml:space="preserve">
+    <value>Assembly reference '{0}' does not exists.</value>
+  </data>
+  <data name="AssemblyResolveError" xml:space="preserve">
+    <value>Assembly '{0}' could not be resolved.</value>
+  </data>
+  <data name="EventLoadError" xml:space="preserve">
+    <value>Event '{0}' could not be loaded.</value>
+  </data>
+  <data name="EventNotFound" xml:space="preserve">
+    <value>Event '{0}::{1}' could not be found.</value>
+  </data>
+  <data name="EventNotFound2" xml:space="preserve">
+    <value>Event '{0}' could not be found.</value>
+  </data>
+  <data name="EventResolveError" xml:space="preserve">
+    <value>Event '{0}' could not be resolved.</value>
+  </data>
+  <data name="ExportedTypeResolveError" xml:space="preserve">
+    <value>Exported type '{0}' could not be resolved.</value>
+  </data>
+  <data name="FieldNotFound" xml:space="preserve">
+    <value>Field '{0}::{1}' could not be found.</value>
+  </data>
+  <data name="FieldNotFound2" xml:space="preserve">
+    <value>Field '{0}' could not be found.</value>
+  </data>
+  <data name="FieldResolveError" xml:space="preserve">
+    <value>Field '{0}' could not be resolved.</value>
+  </data>
+  <data name="FileNotExists" xml:space="preserve">
+    <value>File '{0}' does not exists.</value>
+  </data>
+  <data name="FrameworkVersionNotValid" xml:space="preserve">
+    <value>Framework version '{0}' is not valid.</value>
+  </data>
+  <data name="InvalidCertificate" xml:space="preserve">
+    <value>Certificate is not valid.</value>
+  </data>
+  <data name="InvalidState" xml:space="preserve">
+    <value>State of assembly is not valid.</value>
+  </data>
+  <data name="LookupRecordNotFound" xml:space="preserve">
+    <value>Record not found on lookup.</value>
+  </data>
+  <data name="MetadataHeaderNotValid" xml:space="preserve">
+    <value>Metadata header does not contain valid signature.</value>
+  </data>
+  <data name="MetadataImageNotValid" xml:space="preserve">
+    <value>File '{0}' is not a .NET assembly.</value>
+  </data>
+  <data name="MetadataStreamNameNotValid" xml:space="preserve">
+    <value>Unrecognized metadata stream name '{0}'.</value>
+  </data>
+  <data name="MethodBaseNotFound" xml:space="preserve">
+    <value>Base method of method '{0}::{1}' could not be found.</value>
+  </data>
+  <data name="MethodBodyBlobNotValid" xml:space="preserve">
+    <value>Could not load method body.</value>
+  </data>
+  <data name="MethodILNotValid" xml:space="preserve">
+    <value>Method IL is not valid.</value>
+  </data>
+  <data name="MethodILNotValid2" xml:space="preserve">
+    <value>Method {0} does not have a valid IL.</value>
+  </data>
+  <data name="MethodNotFound" xml:space="preserve">
+    <value>Method '{0}::{1}' could not be found.</value>
+  </data>
+  <data name="MethodNotFound2" xml:space="preserve">
+    <value>Method '{0}' could not be found.</value>
+  </data>
+  <data name="MethodRefTokenNotValid" xml:space="preserve">
+    <value>Invalid method reference token {0}. Valid token are MemberRef, Method or MethodSpec.</value>
+  </data>
+  <data name="MethodResolveError" xml:space="preserve">
+    <value>Method '{0}' could not be resolved.</value>
+  </data>
+  <data name="ModuleNotFound" xml:space="preserve">
+    <value>Module '{0}' could not be found.</value>
+  </data>
+  <data name="ModuleReferenceNotFoundByName" xml:space="preserve">
+    <value>Module reference '{0}' does not exists.</value>
+  </data>
+  <data name="ModuleResolveError" xml:space="preserve">
+    <value>Could not resolve module '{0}'.</value>
+  </data>
+  <data name="NativeMethodBodyNotSupported" xml:space="preserve">
+    <value>Method '{0}::{1}' is implemented in native platform-specific code which is not currently supported.</value>
+  </data>
+  <data name="PrimeModuleRequired" xml:space="preserve">
+    <value>Prime .NET module is required.</value>
+  </data>
+  <data name="PropertyAndMethodNotInTheSameAssembly" xml:space="preserve">
+    <value>Property {0} and associated method for {1} should be in the same assembly.</value>
+  </data>
+  <data name="PropertyLoadError" xml:space="preserve">
+    <value>Could not load property '{0}'.</value>
+  </data>
+  <data name="PropertyNotFound" xml:space="preserve">
+    <value>Property '{0}::{1}' could not be found.</value>
+  </data>
+  <data name="PropertyNotFound2" xml:space="preserve">
+    <value>Property '{0}' could not be found.</value>
+  </data>
+  <data name="PropertyResolveError" xml:space="preserve">
+    <value>Property '{0}' could not be resolved.</value>
+  </data>
+  <data name="ResourceNotFound" xml:space="preserve">
+    <value>Resource '{0}' could not be found in assembly '{1}'.</value>
+  </data>
+  <data name="ResourceNotFound2" xml:space="preserve">
+    <value>Resource '{0}' could not be found.</value>
+  </data>
+  <data name="ResourceResolveError" xml:space="preserve">
+    <value>Resource '{0}' could not be resolved.</value>
+  </data>
+  <data name="SecurityAttributeSignatureNotValid" xml:space="preserve">
+    <value>Invalid security attribute signature.</value>
+  </data>
+  <data name="SignatureDeserializeError" xml:space="preserve">
+    <value>Could not deserialize signature.</value>
+  </data>
+  <data name="StateItemNotExists" xml:space="preserve">
+    <value>Item with key '{0}' does not exists.</value>
+  </data>
+  <data name="TableRowDontExists" xml:space="preserve">
+    <value>{0} row {1} does not exists.</value>
+  </data>
+  <data name="TypeIdentityParseError" xml:space="preserve">
+    <value>Type '{0}' could not be loaded.</value>
+  </data>
+  <data name="TypeNotFound" xml:space="preserve">
+    <value>Type '{0}' could not be found.</value>
+  </data>
+  <data name="TypeResolveError" xml:space="preserve">
+    <value>Type '{0}' could not be resolved.</value>
+  </data>
+</root>

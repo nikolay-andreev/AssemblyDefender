@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="AssemblyDefender.UI.Shell.Project.BuildProgressView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:shell="clr-namespace:AssemblyDefender.UI.Shell"
+			 xmlns:project="clr-namespace:AssemblyDefender.UI.Shell.Project"
+			 xmlns:model="clr-namespace:AssemblyDefender.UI.Model;assembly=AssemblyDefender.UI.Model"
+			 xmlns:projectModel="clr-namespace:AssemblyDefender.UI.Model.Project;assembly=AssemblyDefender.UI.Model"
+             mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="450">
+	<DockPanel>
+		<DockPanel DockPanel.Dock="Top"
+				   Margin="10,20,10,0">
+			<DockPanel DockPanel.Dock="Top">
+				<Image DockPanel.Dock="Left"
+					   Source="{Binding StatusImage, Mode=OneWay, Converter={StaticResource imageTypeToSourceConverter}}"
+					   Width="16" Height="16"
+					   VerticalAlignment="Center" HorizontalAlignment="Left" />
+				<TextBlock DockPanel.Dock="Right"
+						   Text="{Binding StatusMessage, Mode=OneWay}"
+						   TextWrapping="Wrap"
+						   Margin="15,0,0,0"
+						   VerticalAlignment="Center" HorizontalAlignment="Left" />
+			</DockPanel>
+			<ProgressBar DockPanel.Dock="Bottom"
+						 Value="{Binding ProgressPercentage, Mode=OneWay}"
+						 Height="20" Margin="0,20,0,0"
+						 VerticalAlignment="Center" />
+		</DockPanel>
+		<Border DockPanel.Dock="Bottom"
+				Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+				VerticalAlignment="Bottom"
+				Padding="10" Margin="0,20,0,0">
+			<Button Content="{Binding ExitText, Mode=OneWay}"
+					Command="{Binding CloseCommand, Mode=OneWay}"
+					IsEnabled="{Binding IsClosing, Mode=OneWay, Converter={StaticResource invertBoolConverter}}"
+					IsCancel="True"
+					Padding="4,2,4,2"
+					MinWidth="70"
+					VerticalAlignment="Center" HorizontalAlignment="Right" />
+		</Border>
+	</DockPanel>
+</UserControl>

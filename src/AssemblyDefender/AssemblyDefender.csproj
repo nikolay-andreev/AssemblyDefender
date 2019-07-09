@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5BC121EF-CBE5-4E5D-AE56-E17F3B617250}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssemblyDefender</RootNamespace>
+    <AssemblyName>AssemblyDefender</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyDefenderException.cs" />
+    <Compile Include="AssemblyDefenderUtils.cs" />
+    <Compile Include="BamlAnalyzer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BamlMemberReferenceMapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BindableAttributeAnalizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildAssemblyCollection.cs" />
+    <Compile Include="Build\BuildErrorLog.cs" />
+    <Compile Include="Build\BuildLog.cs" />
+    <Compile Include="Build\ProjectBuildTaskEventArgs.cs" />
+    <Compile Include="Build\ProjectBuildTaskType.cs" />
+    <Compile Include="Build\BuildAssemblyLoader.cs" />
+    <Compile Include="ConfigurationAnalizer.cs" />
+    <Compile Include="CodeAnalizer.cs" />
+    <Compile Include="DependencyPropertyAnalizer.cs" />
+    <Compile Include="Project\ProjectAssemblyMerge.cs" />
+    <Compile Include="SerializationAnalizer.cs" />
+    <Compile Include="MainTypeFunctionPointerBuilder.cs" />
+    <Compile Include="MainTypeCallProxyBuilder.cs" />
+    <Compile Include="ModuleObjectState.cs" />
+    <Compile Include="Obfuscation\ControlFlow\ControlFlowGenerator.cs" />
+    <Compile Include="Obfuscation\EncryptIL\ILCryptoBlobBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\EncryptIL\ILCryptoInvokeMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\EncryptIL\ILCryptoInvokeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\EncryptIL\ILCryptoMapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\EncryptIL\ILCryptoMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\EncryptIL\ILCryptoMethodBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\EncryptIL\ILCryptoObfuscator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\EncryptIL\ILCryptoHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\Rename\MemberNameGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\Resource\ResourceHelper.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StateObjectList.cs" />
+    <Compile Include="DelegateType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DelegateTypeBuilder.cs" />
+    <Compile Include="DelegateTypeGenerator.cs" />
+    <Compile Include="ExplicitMethodOverrideBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainType.cs" />
+    <Compile Include="Build\BuildAssembly.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildAssemblyManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\Builder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildField.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildMethod.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildModule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GeneratedCodeObfuscator.cs" />
+    <Compile Include="ModuleState.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\ProjectBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\ControlFlow\ControlFlowHelper.cs" />
+    <Compile Include="Obfuscation\Embed\AssemblyEmbedder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\Embed\AssemblyEmbedGenerator.cs" />
+    <Compile Include="Obfuscation\Merge\AssemblyMerge.cs" />
+    <Compile Include="Obfuscation\Merge\AssemblyMergeGenerator.cs" />
+    <Compile Include="Obfuscation\Rename\MemberNameChanger.cs" />
+    <Compile Include="Obfuscation\Rename\MemberReferenceMapper.cs" />
+    <Compile Include="Obfuscation\Rename\MismatchTypeGenericArgumentAnalyzer.cs" />
+    <Compile Include="Obfuscation\Rename\RenamedAssemblyResolverGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\Resource\ResourceObfuscator.cs" />
+    <Compile Include="Obfuscation\Resource\ResourceResolverGenerator.cs" />
+    <Compile Include="Obfuscation\String\StringLoaderGenerator.cs" />
+    <Compile Include="Obfuscation\String\StringObfuscator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Optimization\Strip\StripAnalyzer.cs" />
+    <Compile Include="Optimization\Strip\Stripper.cs" />
+    <Compile Include="Optimization\Strip\StripUnmarker.cs" />
+    <Compile Include="Project\ProjectScavengeState.cs" />
+    <Compile Include="ResourceStorage.cs" />
+    <Compile Include="ResourceStorageBuilder.cs" />
+    <Compile Include="StackTraceDecoder.cs" />
+    <Compile Include="StartupMethodGenerator.cs" />
+    <Compile Include="ExplicitMethodCallBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Obfuscation\ControlFlow\ControlFlowObfuscator.cs" />
+    <Compile Include="Obfuscation\Merge\MergeDuplicateBehavior.cs" />
+    <Compile Include="Obfuscation\Rename\MemberRenameHelper.cs" />
+    <Compile Include="Optimization\MethodDevirtualizer.cs" />
+    <Compile Include="Optimization\TypeSealer.cs" />
+    <Compile Include="Project\ProjectAssemblySign.cs" />
+    <Compile Include="Project\ProjectHelper.cs" />
+    <Compile Include="Project\ProjectNamespace.cs" />
+    <Compile Include="Project\ProjectResource.cs" />
+    <Compile Include="Project\ProjectAssembly.cs" />
+    <Compile Include="Project\ProjectEvent.cs" />
+    <Compile Include="Project\ProjectException.cs" />
+    <Compile Include="Project\ProjectField.cs" />
+    <Compile Include="Project\ProjectMethod.cs" />
+    <Compile Include="Project\ProjectModule.cs" />
+    <Compile Include="Project\Project.cs" />
+    <Compile Include="Project\ProjectProperty.cs" />
+    <Compile Include="Project\ProjectType.cs" />
+    <Compile Include="Project\ProjectReadState.cs" />
+    <Compile Include="Project\ProjectWriteState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ObfuscationAttributeStripper.cs" />
+    <Compile Include="StateObject.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyDefender.Baml\AssemblyDefender.Baml.csproj">
+      <Project>{4c6effce-2d3e-4ff5-90ba-c37aadceded1}</Project>
+      <Name>AssemblyDefender.Baml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.Common\AssemblyDefender.Common.csproj">
+      <Project>{1357fc2e-23f0-4111-b4c9-9d5e083033e6}</Project>
+      <Name>AssemblyDefender.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.Net\AssemblyDefender.Net.csproj">
+      <Project>{3cf10211-9d80-423d-9610-97079336d76a}</Project>
+      <Name>AssemblyDefender.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.PE\AssemblyDefender.PE.csproj">
+      <Project>{8246299c-b667-4ae9-959c-586c630a3af1}</Project>
+      <Name>AssemblyDefender.PE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

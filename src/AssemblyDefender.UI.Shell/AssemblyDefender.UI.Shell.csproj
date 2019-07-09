@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A246DDD7-3DB2-4872-89E7-340FD3275676}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssemblyDefender.UI.Shell</RootNamespace>
+    <AssemblyName>AssemblyDefender.UI.Shell</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\LogoIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\ImageTypeToImageConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\ImageTypeToSourceConverter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Project\Build\BuildProgressView.xaml.cs">
+      <DependentUpon>BuildProgressView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\Build\BuildErrorView.xaml.cs">
+      <DependentUpon>BuildErrorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\Build\BuildUnknownErrorView.xaml.cs">
+      <DependentUpon>BuildUnknownErrorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\DecodeStackTraceView.xaml.cs">
+      <DependentUpon>DecodeStackTraceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\ToolView.xaml.cs">
+      <DependentUpon>ToolView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Notifications\MessageNotificationView.xaml.cs">
+      <DependentUpon>MessageNotificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notifications\NotificationView.xaml.cs">
+      <DependentUpon>NotificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorWindow.xaml.cs">
+      <DependentUpon>ErrorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Images.cs" />
+    <Compile Include="Notifications\NotificationListView.xaml.cs">
+      <DependentUpon>NotificationListView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ActionListView.xaml.cs">
+      <DependentUpon>ActionListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\AssemblyInvalidView.xaml.cs">
+      <DependentUpon>AssemblyInvalidView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\AssemblyView.xaml.cs">
+      <DependentUpon>AssemblyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\EventView.xaml.cs">
+      <DependentUpon>EventView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\FieldView.xaml.cs">
+      <DependentUpon>FieldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\MethodView.xaml.cs">
+      <DependentUpon>MethodView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\ModuleView.xaml.cs">
+      <DependentUpon>ModuleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\NamespaceView.xaml.cs">
+      <DependentUpon>NamespaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\PKCS12PasswordWindow.xaml.cs">
+      <DependentUpon>PKCS12PasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\ProjectView.xaml.cs">
+      <DependentUpon>ProjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\PropertyView.xaml.cs">
+      <DependentUpon>PropertyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\ResourceFolderView.xaml.cs">
+      <DependentUpon>ResourceFolderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\CodeModel\TypeView.xaml.cs">
+      <DependentUpon>TypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\Navigation\NavigationTreeView.xaml.cs">
+      <DependentUpon>NavigationTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\Navigation\NavigationListBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Project\Navigation\NavigationListBoxItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Project\Navigation\NavigationUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Project\ProjectShellView.xaml.cs">
+      <DependentUpon>ProjectShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\Build\BuildWindow.xaml.cs">
+      <DependentUpon>BuildWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Project\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShellWindow.xaml.cs">
+      <DependentUpon>ShellWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StartPage\MRUView.xaml.cs">
+      <DependentUpon>MRUView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartPage\StartPageView.xaml.cs">
+      <DependentUpon>StartPageView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AboutWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Notifications\MessageNotificationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Notifications\NotificationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ErrorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Notifications\NotificationListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActionListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\Build\BuildProgressView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\Build\BuildErrorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\Build\BuildUnknownErrorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\AssemblyInvalidView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\AssemblyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\EventView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\FieldView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\MethodView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\ModuleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\NamespaceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\PKCS12PasswordWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\ProjectView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\PropertyView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\ResourceFolderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\CodeModel\TypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\DecodeStackTraceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\Navigation\NavigationTreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\ProjectShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\Build\BuildWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\SearchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Project\ToolView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShellWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartPage\MRUView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StartPage\StartPageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Images\DecodeStackTrace.pdn" />
+    <None Include="Images\Node_Assembly_Add.pdn" />
+    <None Include="Images\Node_Assembly_Invalid.pdn" />
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GoBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bitmap.png" />
+    <Resource Include="Images\Contact.png" />
+    <Resource Include="Images\Copy.png" />
+    <Resource Include="Images\Cut.png" />
+    <Resource Include="Images\Delete.png" />
+    <Resource Include="Images\Help.png" />
+    <Resource Include="Images\ImageFile.png" />
+    <Resource Include="Images\License.png" />
+    <Resource Include="Images\New.png" />
+    <Resource Include="Images\Node_Assembly.png" />
+    <Resource Include="Images\Node_Assembly_Add.png" />
+    <Resource Include="Images\Node_Assembly_Invalid.png" />
+    <Resource Include="Images\Node_Class.png" />
+    <Resource Include="Images\Node_Class_Friend.png" />
+    <Resource Include="Images\Node_Class_Private.png" />
+    <Resource Include="Images\Node_Class_Protected.png" />
+    <Resource Include="Images\Node_Class_Sealed.png" />
+    <Resource Include="Images\Node_Delegate.png" />
+    <Resource Include="Images\Node_Delegate_Friend.png" />
+    <Resource Include="Images\Node_Delegate_Private.png" />
+    <Resource Include="Images\Node_Delegate_Protected.png" />
+    <Resource Include="Images\Node_Delegate_Sealed.png" />
+    <Resource Include="Images\Node_Enum.png" />
+    <Resource Include="Images\Node_EnumItem.png" />
+    <Resource Include="Images\Node_EnumItem_Friend.png" />
+    <Resource Include="Images\Node_EnumItem_Private.png" />
+    <Resource Include="Images\Node_EnumItem_Protected.png" />
+    <Resource Include="Images\Node_EnumItem_Sealed.png" />
+    <Resource Include="Images\Node_Enum_Private.png" />
+    <Resource Include="Images\Node_Enum_Friend.png" />
+    <Resource Include="Images\Node_Enum_Protected.png" />
+    <Resource Include="Images\Node_Enum_Sealed.png" />
+    <Resource Include="Images\Node_Event.png" />
+    <Resource Include="Images\Node_Field.png" />
+    <Resource Include="Images\Node_Field_Friend.png" />
+    <Resource Include="Images\Node_Field_Private.png" />
+    <Resource Include="Images\Node_Field_Protected.png" />
+    <Resource Include="Images\Node_Field_Sealed.png" />
+    <Resource Include="Images\Node_Interface.png" />
+    <Resource Include="Images\Node_Interface_Friend.png" />
+    <Resource Include="Images\Node_Interface_Private.png" />
+    <Resource Include="Images\Node_Interface_Protected.png" />
+    <Resource Include="Images\Node_Interface_Sealed.png" />
+    <Resource Include="Images\Node_Method.png" />
+    <Resource Include="Images\Node_Method_Friend.png" />
+    <Resource Include="Images\Node_Method_Private.png" />
+    <Resource Include="Images\Node_Method_Protected.png" />
+    <Resource Include="Images\Node_Method_Sealed.png" />
+    <Resource Include="Images\Node_Module.png" />
+    <Resource Include="Images\Node_Namespace.png" />
+    <Resource Include="Images\Node_Properties.png" />
+    <Resource Include="Images\Node_Resource.png" />
+    <Resource Include="Images\Node_ValueType.png" />
+    <Resource Include="Images\Node_ValueType_Private.png" />
+    <Resource Include="Images\Node_ValueType_Friend.png" />
+    <Resource Include="Images\Node_ValueType_Protected.png" />
+    <Resource Include="Images\Node_ValueType_Sealed.png" />
+    <Resource Include="Images\Obfuscate.png" />
+    <Resource Include="Images\Obfuscate_EncryptIL.png" />
+    <Resource Include="Images\Obfuscate_ControlFlow.png" />
+    <Resource Include="Images\Obfuscate_Rename.png" />
+    <Resource Include="Images\Obfuscate_Resources.png" />
+    <Resource Include="Images\Obfuscate_Strings.png" />
+    <Resource Include="Images\Open.png" />
+    <Resource Include="Images\Optimize.png" />
+    <Resource Include="Images\Paste.png" />
+    <Resource Include="Images\Print.png" />
+    <Resource Include="Images\Project.png" />
+    <Resource Include="Images\Redo.png" />
+    <Resource Include="Images\Refresh.png" />
+    <Resource Include="Images\ReportBug.png" />
+    <Resource Include="Images\Save.png" />
+    <Resource Include="Images\SaveAll.png" />
+    <Resource Include="Images\Search.png" />
+    <Resource Include="Images\SoftwareUpdate.png" />
+    <Resource Include="Images\Undo.png" />
+    <Resource Include="Images\Web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Keys.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NextBr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Optimize_Prune.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Optimize_DevirtualizeMethod.png" />
+    <Resource Include="Images\Optimize_SealTypes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Error32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DeleteRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Node_Event_Friend.png" />
+    <Resource Include="Images\Node_Event_Private.png" />
+    <Resource Include="Images\Node_Event_Protected.png" />
+    <Resource Include="Images\Node_Event_Sealed.png" />
+    <Resource Include="Images\Node_Event_Shortcut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Node_Method_Shortcut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Node_Properties_Friend.png" />
+    <Resource Include="Images\Node_Properties_Private.png" />
+    <Resource Include="Images\Node_Properties_Protected.png" />
+    <Resource Include="Images\Node_Properties_Sealed.png" />
+    <Resource Include="Images\Node_Properties_Shortcut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Folder_Closed.png" />
+    <Resource Include="Images\Folder_Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ArrowBackward.png" />
+    <Resource Include="Images\ArrowForward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Critical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ListView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Input.png" />
+    <Resource Include="Images\Output.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LogoIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Lock_Locked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Info.png" />
+    <Resource Include="Images\Info32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\EarthConnection32.png" />
+    <Resource Include="Images\EarthDelete32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DeleteGray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Compile.png" />
+    <Resource Include="Images\OpenFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Close10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CloseHover10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ClosePressed10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GearError32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Check.png" />
+    <Resource Include="Images\Check2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyDefender.Common\AssemblyDefender.Common.csproj">
+      <Project>{1357FC2E-23F0-4111-B4C9-9D5E083033E6}</Project>
+      <Name>AssemblyDefender.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.UI\AssemblyDefender.UI.csproj">
+      <Project>{3cdbd784-5363-4acf-aa65-7fa36dfd4c54}</Project>
+      <Name>AssemblyDefender.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefenderBuilder\AssemblyDefenderBuilder.csproj">
+      <Project>{28915e16-9017-4c2d-9d59-edaa65de844e}</Project>
+      <Name>AssemblyDefenderBuilder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender\AssemblyDefender.csproj">
+      <Project>{5BC121EF-CBE5-4E5D-AE56-E17F3B617250}</Project>
+      <Name>AssemblyDefender</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.UI.Model\AssemblyDefender.UI.Model.csproj">
+      <Project>{CC4CDEB1-3E6D-45DE-B8EF-6E0D92512975}</Project>
+      <Name>AssemblyDefender.UI.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PageGear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CollapseVertical.png" />
+    <Resource Include="Images\ExpandVertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CollapseList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DecodeStackTrace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ExpandList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LogoHeader.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

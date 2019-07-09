@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8246299C-B667-4AE9-959C-586C630A3AF1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssemblyDefender.PE</RootNamespace>
+    <AssemblyName>AssemblyDefender.PE</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataDirectories.cs" />
+    <Compile Include="FileLoadMode.cs" />
+    <Compile Include="PESectionNames.cs" />
+    <Compile Include="BaseRelocation\BaseRelocationBuilder.cs" />
+    <Compile Include="Build\BuildBlobPoint.cs" />
+    <Compile Include="Build\BuildTask.cs" />
+    <Compile Include="Build\BuildException.cs" />
+    <Compile Include="Certificate\CertificateBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Certificate\CertificateEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Certificate\CertificateRevision.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Certificate\CertificateTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Certificate\CertificateType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildFixupCollection.cs" />
+    <Compile Include="Build\BuildBlobCollection.cs" />
+    <Compile Include="Build\BuildSectionCollection.cs" />
+    <Compile Include="Build\BuildTaskCollection.cs" />
+    <Compile Include="Debug\CodeView\CodeViewDebugEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debug\DebugBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debug\DebugEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debug\DebugEntryHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debug\DebugTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debug\DebugType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debug\RawDebugEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DelayImport\DelayImportBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DelayImport\DelayImportEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DelayImport\DelayImportModuleTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DelayImport\DelayImportTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DelayImport\DelayImportTableHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Export\ExportBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Export\ExportEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Export\ExportForwarderEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Export\ExportRVAEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Export\ExportTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Export\ExportTableHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Import\ImportBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Import\ImportEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Import\ImportModuleTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Import\ImportTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Import\ImportTableHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadConfig\LoadConfigBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadConfig\LoadConfigHeader32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadConfig\LoadConfigHeader64.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadConfig\LoadConfigInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PEException.cs" />
+    <Compile Include="BaseRelocation\BaseRelocationBlock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseRelocation\BaseRelocationEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseRelocation\BaseRelocationTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BaseRelocation\BaseRelocationType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Build\BuildBlob.cs" />
+    <Compile Include="Build\BuildFixup.cs" />
+    <Compile Include="Build\BuildSection.cs" />
+    <Compile Include="Build\PEBuilder.cs" />
+    <Compile Include="PEUtils.cs" />
+    <Compile Include="COFFHeader.cs" />
+    <Compile Include="PEConstants.cs" />
+    <Compile Include="PESection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PEImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resource\ResourceBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resource\ResourceDataEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resource\ResourceEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resource\ResourceTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resource\ResourceTableEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resource\ResourceTableHeader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resource\ResourceType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SectionCharacteristics.cs" />
+    <Compile Include="SectionHeader.cs" />
+    <Compile Include="PEHeader64.cs" />
+    <Compile Include="DataDirectory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DllCharacteristics.cs" />
+    <Compile Include="DOSHeader.cs" />
+    <Compile Include="ImageCharacteristics.cs" />
+    <Compile Include="MachineType.cs" />
+    <Compile Include="PEHeader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SubsystemType.cs" />
+    <Compile Include="TLS\TLS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TLS\TLSBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TLS\TLSHeader32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TLS\TLSHeader64.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyDefender.Common\AssemblyDefender.Common.csproj">
+      <Project>{1357fc2e-23f0-4111-b4c9-9d5e083033e6}</Project>
+      <Name>AssemblyDefender.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

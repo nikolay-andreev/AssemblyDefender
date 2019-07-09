@@ -1,0 +1,439 @@
+﻿<UserControl x:Class="AssemblyDefender.UI.Shell.Project.AssemblyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
+			 xmlns:wincor="clr-namespace:AssemblyDefender.UI;assembly=AssemblyDefender.UI"
+             xmlns:shell="clr-namespace:AssemblyDefender.UI.Shell"
+             xmlns:project="clr-namespace:AssemblyDefender.UI.Shell.Project"
+			 xmlns:model="clr-namespace:AssemblyDefender.UI.Model;assembly=AssemblyDefender.UI.Model"
+			 xmlns:projectModel="clr-namespace:AssemblyDefender.UI.Model.Project;assembly=AssemblyDefender.UI.Model"
+             mc:Ignorable="d"
+             d:DesignHeight="1880" d:DesignWidth="800">
+	<StackPanel Orientation="Vertical" 
+				Width="600"
+				HorizontalAlignment="Left">
+		<StackPanel Orientation="Vertical"
+					Margin="10,10,0,10">
+			<!-- Input file path -->
+			<DockPanel HorizontalAlignment="Left">
+				<Image Source="{StaticResource Input_ImageSource}"
+						DockPanel.Dock="Left"
+						Width="16" Height="16" />
+				<TextBox Text="{Binding FilePath, Mode=OneTime}"
+						 TextWrapping="Wrap"
+						 BorderThickness="0"
+						 Background="Transparent"
+						 IsReadOnly="True"
+						 IsReadOnlyCaretVisible="True"
+						 Margin="7,0,0,0"
+						 VerticalAlignment="Center" />
+			</DockPanel>
+			<StackPanel Orientation="Vertical"
+						Margin="27,0,0,0">
+				<Button Content="{x:Static model:SR.ChangeInputPath}"
+						Style="{StaticResource LinkButton2}"
+						HorizontalAlignment="Left" VerticalAlignment="Center"
+						Focusable="False"
+						Margin="0,5,0,0"
+						Command="{Binding ChangeInputCommand, Mode=OneTime}"  />				
+				<TextBlock Text="{Binding FileSize, Mode=OneTime, StringFormat='Size: {0} bytes'}"
+							TextWrapping="Wrap"
+							Margin="0,5,0,0" />
+				<TextBlock Text="{Binding CreatedDate, Mode=OneTime, StringFormat='Date created: {0}'}"
+							TextWrapping="Wrap"
+							Margin="0,5,0,0" />
+				<TextBlock Text="{Binding LastModifiedDate, Mode=OneTime, StringFormat='Date modified: {0}'}"
+							TextWrapping="Wrap"
+							Margin="0,5,0,0" />
+			</StackPanel>
+			<!-- Output file path -->
+			<DockPanel Margin="0,15,0,0" HorizontalAlignment="Left">
+				<Image Source="{StaticResource Output_ImageSource}"
+					   DockPanel.Dock="Left"
+					   Width="16" Height="16" />
+				<TextBox Text="{Binding OutputFilePath, Mode=OneWay}"
+						 TextWrapping="Wrap"
+						 BorderThickness="0"
+						 Background="Transparent"
+						 IsReadOnly="True"
+						 IsReadOnlyCaretVisible="True"
+						 Margin="7,0,0,0"
+						 VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+			</DockPanel>
+			<StackPanel Orientation="Vertical"
+						Margin="27,0,0,0">
+				<Button DockPanel.Dock="Right" Content="{x:Static model:SR.ChangeOutputPath}"
+						Style="{StaticResource LinkButton2}"
+						HorizontalAlignment="Left" VerticalAlignment="Center"
+						Focusable="False"
+						Margin="0,5,0,0"
+						Command="{Binding ChangeOutputCommand, Mode=OneTime}"  />
+			</StackPanel>
+		</StackPanel>
+		<Separator Margin="0,20,0,0" />
+		<StackPanel Orientation="Vertical"
+                    Margin="20,20,0,0">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" MaxWidth="400" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<!-- Name -->
+				<TextBlock Grid.Row="0" Grid.Column="0"
+                           Text="{x:Static model:SR.NameLabel}"
+                           VerticalAlignment="Center" />
+				<TextBox Grid.Row="0" Grid.Column="1"
+                         VerticalAlignment="Center"
+                         Margin="10,3,0,3"
+                         IsReadOnly="{Binding IsNameChanged, Mode=OneWay, Converter={StaticResource invertBoolConverter}}">
+					<TextBox.Text>
+						<Binding Path="Name" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+							<Binding.ValidationRules>
+								<ExceptionValidationRule />
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+				<ToggleButton Grid.Row="0" Grid.Column="2"
+                              Style="{StaticResource ChangeUndoToggleButton}"
+                              IsChecked="{Binding Path=IsNameChanged}"
+                              Margin="8,0,0,0" />
+				<!-- Version -->
+				<TextBlock Grid.Row="1" Grid.Column="0"
+                           Text="{x:Static model:SR.VersionLabel}"
+                           VerticalAlignment="Center"/>
+				<TextBox Grid.Row="1" Grid.Column="1"
+                         VerticalAlignment="Center"
+                         Margin="10,3,0,3"
+                         IsReadOnly="{Binding IsVersionChanged, Mode=OneWay, Converter={StaticResource invertBoolConverter}}">
+					<TextBox.Text>
+						<Binding Path="Version" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+							<Binding.ValidationRules>
+								<ExceptionValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+				<ToggleButton Grid.Row="1" Grid.Column="2"
+                              Style="{StaticResource ChangeUndoToggleButton}"
+                              IsChecked="{Binding Path=IsVersionChanged}"
+                              Margin="8,0,0,0" />
+				<!-- Title -->
+				<TextBlock Grid.Row="2" Grid.Column="0"
+                           Text="{x:Static model:SR.TitleLabel}"
+                           VerticalAlignment="Center"/>
+				<TextBox Grid.Row="2" Grid.Column="1"
+                         VerticalAlignment="Center"
+                         Margin="10,3,0,3"
+                         IsReadOnly="{Binding IsTitleChanged, Mode=OneWay, Converter={StaticResource invertBoolConverter}}">
+					<TextBox.Text>
+						<Binding Path="Title" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+							<Binding.ValidationRules>
+								<ExceptionValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+				<ToggleButton Grid.Row="2" Grid.Column="2"
+                              Style="{StaticResource ChangeUndoToggleButton}"
+                              IsChecked="{Binding Path=IsTitleChanged}"
+                              Margin="8,0,0,0" />
+				<!-- Description -->
+				<TextBlock Grid.Row="3" Grid.Column="0"
+                           Text="{x:Static model:SR.DescriptionLabel}"
+                           VerticalAlignment="Center"/>
+				<TextBox Grid.Row="3" Grid.Column="1"
+                         VerticalAlignment="Center"
+                         Margin="10,3,0,3"
+                         IsReadOnly="{Binding IsDescriptionChanged, Mode=OneWay, Converter={StaticResource invertBoolConverter}}">
+					<TextBox.Text>
+						<Binding Path="Description" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+							<Binding.ValidationRules>
+								<ExceptionValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+				<ToggleButton Grid.Row="3" Grid.Column="2"
+                              Style="{StaticResource ChangeUndoToggleButton}"
+                              IsChecked="{Binding Path=IsDescriptionChanged}"
+                              Margin="8,0,0,0" />
+				<!-- Company -->
+				<TextBlock Grid.Row="4" Grid.Column="0"
+                           Text="{x:Static model:SR.CompanyLabel}"
+                           VerticalAlignment="Center"/>
+				<TextBox Grid.Row="4" Grid.Column="1"
+                         VerticalAlignment="Center"
+                         Margin="10,3,0,3"
+                         IsReadOnly="{Binding IsCompanyChanged, Mode=OneWay, Converter={StaticResource invertBoolConverter}}">
+					<TextBox.Text>
+						<Binding Path="Company" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+							<Binding.ValidationRules>
+								<ExceptionValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+				<ToggleButton Grid.Row="4" Grid.Column="2"
+                              Style="{StaticResource ChangeUndoToggleButton}"
+                              IsChecked="{Binding Path=IsCompanyChanged}"
+                              Margin="8,0,0,0" />
+				<!-- Product -->
+				<TextBlock Grid.Row="5" Grid.Column="0"
+                           Text="{x:Static model:SR.ProductLabel}"
+                           VerticalAlignment="Center"/>
+				<TextBox Grid.Row="5" Grid.Column="1"
+                         VerticalAlignment="Center"
+                         Margin="10,3,0,3"
+                         IsReadOnly="{Binding IsProductChanged, Mode=OneWay, Converter={StaticResource invertBoolConverter}}">
+					<TextBox.Text>
+						<Binding Path="Product" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+							<Binding.ValidationRules>
+								<ExceptionValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+				<ToggleButton Grid.Row="5" Grid.Column="2"
+                              Style="{StaticResource ChangeUndoToggleButton}"
+                              IsChecked="{Binding Path=IsProductChanged}"
+                              Margin="8,0,0,0" />
+				<!-- Copyright -->
+				<TextBlock Grid.Row="6" Grid.Column="0"
+                           Text="{x:Static model:SR.CopyrightLabel}"
+                           VerticalAlignment="Center"/>
+				<TextBox Grid.Row="6" Grid.Column="1"
+                         VerticalAlignment="Center"
+                         Margin="10,3,0,3"
+                         IsReadOnly="{Binding IsCopyrightChanged, Mode=OneWay, Converter={StaticResource invertBoolConverter}}">
+					<TextBox.Text>
+						<Binding Path="Copyright" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+							<Binding.ValidationRules>
+								<ExceptionValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+				<ToggleButton Grid.Row="6" Grid.Column="2"
+                              Style="{StaticResource ChangeUndoToggleButton}"
+                              IsChecked="{Binding Path=IsCopyrightChanged}"
+                              Margin="8,0,0,0" />
+				<!-- Trademark -->
+				<TextBlock Grid.Row="7" Grid.Column="0"
+                       Text="{x:Static model:SR.TrademarkLabel}"
+                       VerticalAlignment="Center"/>
+				<TextBox Grid.Row="7" Grid.Column="1"
+                         VerticalAlignment="Center"
+                         Margin="10,3,0,3"
+                         IsReadOnly="{Binding IsTrademarkChanged, Mode=OneWay, Converter={StaticResource invertBoolConverter}}">
+					<TextBox.Text>
+						<Binding Path="Trademark" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+							<Binding.ValidationRules>
+								<ExceptionValidationRule/>
+							</Binding.ValidationRules>
+						</Binding>
+					</TextBox.Text>
+				</TextBox>
+				<ToggleButton Grid.Row="7" Grid.Column="2"
+                              Style="{StaticResource ChangeUndoToggleButton}"
+                              IsChecked="{Binding Path=IsTrademarkChanged}"
+                              Margin="8,0,0,0" />
+			</Grid>
+		</StackPanel>
+		<wincor:TitledSeparator Title="{x:Static model:SR.ObfuscateCaption}"
+							   Image="{StaticResource Obfuscate_ImageSource}"
+							   Margin="0,20,0,0" />
+		<StackPanel Orientation="Vertical"
+                    Margin="20,20,0,0">
+			<CheckBox Content="{x:Static model:SR.RenameMembers}"
+						IsChecked="{Binding RenameMembers}"
+						Padding="5,0,0,0"
+						VerticalAlignment="Center" HorizontalAlignment="Left"/>
+			<StackPanel Orientation="Vertical"
+						Margin="20,10,0,0"
+						Visibility="{Binding RenameMembers, Mode=OneWay, Converter={StaticResource visibleCollapsedConverter}}">
+				<StackPanel Orientation="Horizontal"  Height="24">
+					<CheckBox IsChecked="{Binding RenamePublicMembers}"
+							Content="{x:Static model:SR.RenamePublicMembers}"
+							Padding="5,0,0,0"
+							VerticalAlignment="Center" HorizontalAlignment="Left" />
+					<StackPanel Orientation="Horizontal"
+								Visibility="{Binding RenamePublicMembers, Mode=OneWay, Converter={StaticResource visibleCollapsedConverter}}">
+						<wincor:TextImageToggleButton IsChecked="{Binding RenamePublicTypes}"
+													  Image="{StaticResource Node_Class_ImageSource}"
+													  ToolTip="{x:Static model:SR.RenamePublicTypes}"
+													  HorizontalAlignment="Left"
+													  Focusable="False"
+													  Margin="10,0,0,0" />
+						<wincor:TextImageToggleButton IsChecked="{Binding RenamePublicMethods}"
+													  Image="{StaticResource Node_Method_ImageSource}"
+													  ToolTip="{x:Static model:SR.RenamePublicMethods}"
+													  HorizontalAlignment="Left"
+													  Focusable="False"
+													  Margin="5,0,0,0" />
+						<wincor:TextImageToggleButton IsChecked="{Binding RenamePublicFields}"
+													  Image="{StaticResource Node_Field_ImageSource}"
+													  ToolTip="{x:Static model:SR.RenamePublicFields}"
+													  HorizontalAlignment="Left"
+													  Focusable="False"
+													  Margin="5,0,0,0" />
+						<wincor:TextImageToggleButton IsChecked="{Binding RenamePublicProperties}"
+													  Image="{StaticResource Node_Properties_ImageSource}"
+													  ToolTip="{x:Static model:SR.RenamePublicProperties}"
+													  HorizontalAlignment="Left"
+													  Focusable="False"
+													  Margin="5,0,0,0" />
+						<wincor:TextImageToggleButton IsChecked="{Binding RenamePublicEvents}"
+													  Image="{StaticResource Node_Event_ImageSource}"
+													  ToolTip="{x:Static model:SR.RenamePublicEvents}"
+													  HorizontalAlignment="Left"
+													  Focusable="False"
+													  Margin="5,0,0,0" />
+					</StackPanel>
+				</StackPanel>
+				<CheckBox IsChecked="{Binding RenameEnumMembers}"
+                          Content="{x:Static model:SR.RenameEnumMembers}"
+                          Padding="5,0,0,0" Margin="0,10,0,0"
+                          VerticalAlignment="Center" HorizontalAlignment="Left" />
+				<CheckBox IsChecked="{Binding RenameBindableMembers}"
+                          Content="{x:Static model:SR.RenameBindableMembers}"
+                          Padding="5,0,0,0" Margin="0,15,0,0"
+                          VerticalAlignment="Center" HorizontalAlignment="Left" />
+				<CheckBox IsChecked="{Binding RenameSerializableMembers}"
+                          Content="{x:Static model:SR.RenameSerializableMembers}"
+                          Padding="5,0,0,0" Margin="0,15,0,0"
+                          VerticalAlignment="Center" HorizontalAlignment="Left" />
+				<CheckBox IsChecked="{Binding RenameConfigurationMembers}"
+                          Content="{x:Static model:SR.RenameConfigurationMembers}"
+                          Padding="5,0,0,0" Margin="0,15,0,0"
+                          VerticalAlignment="Center" HorizontalAlignment="Left" />
+			</StackPanel>
+            <CheckBox Content="{x:Static model:SR.EncryptIL}"
+						  IsChecked="{Binding EncryptIL}"
+						  Margin="0,15,0,0" Padding="5,0,0,0"
+						  VerticalAlignment="Center" HorizontalAlignment="Left" />
+            <StackPanel Orientation="Vertical"
+								Margin="20,15,0,0"
+								Visibility="{Binding EncryptIL, Mode=OneWay, Converter={StaticResource visibleCollapsedConverter}}">
+                <CheckBox IsChecked="{Binding EncryptILAtomic}"
+								Content="{x:Static model:SR.EncryptILAtomic}"
+								Padding="5,0,0,0"
+								VerticalAlignment="Center" HorizontalAlignment="Left" />
+            </StackPanel>
+            <CheckBox Content="{x:Static model:SR.ObfuscateControlFlow}"
+						IsChecked="{Binding ObfuscateControlFlow}"
+						Margin="0,15,0,0" Padding="5,0,0,0"
+						VerticalAlignment="Center" HorizontalAlignment="Left"/>
+			<CheckBox Content="{x:Static model:SR.ObfuscateStrings}"
+						IsChecked="{Binding ObfuscateStrings}"
+						Margin="0,15,0,0" Padding="5,0,0,0"
+						VerticalAlignment="Center" HorizontalAlignment="Left"/>
+			<CheckBox Content="{x:Static model:SR.ObfuscateResources}"
+						IsChecked="{Binding ObfuscateResources}"
+						Margin="0,15,0,0" Padding="5,0,0,0"
+						VerticalAlignment="Center" HorizontalAlignment="Left"/>
+			<CheckBox Content="{x:Static model:SR.SuppressMSIL}"
+					  IsChecked="{Binding SuppressILdasm}"
+					  Margin="0,15,0,0" Padding="5,0,0,0"
+					  VerticalAlignment="Center" HorizontalAlignment="Left"/>
+		</StackPanel>
+		<wincor:TitledSeparator Title="{x:Static model:SR.OptimizeCaption}"
+							   Image="{StaticResource Optimize_ImageSource}"
+							   Margin="0,20,0,0" />
+		<StackPanel Orientation="Vertical"
+                    Margin="20,20,0,0">
+			<CheckBox Content="{x:Static model:SR.RemoveUnusedMembers}"
+						IsChecked="{Binding RemoveUnusedMembers}"
+						Padding="5,0,0,0"
+						VerticalAlignment="Center" HorizontalAlignment="Left" />
+			<StackPanel Orientation="Vertical"
+                        Margin="20,15,0,0"
+						Visibility="{Binding RemoveUnusedMembers, Mode=OneWay, Converter={StaticResource visibleCollapsedConverter}}">
+				<CheckBox IsChecked="{Binding RemoveUnusedPublicMembers}"
+							Content="{x:Static model:SR.RemoveUnusedPublicMembers}"
+							Padding="5,0,0,0"
+							VerticalAlignment="Center" HorizontalAlignment="Left" />
+			</StackPanel>
+			<CheckBox Content="{x:Static model:SR.SealTypes}"
+						IsChecked="{Binding SealTypes}"
+						Padding="5,0,0,0" Margin="0,15,0,0"
+						VerticalAlignment="Center" HorizontalAlignment="Left"/>
+			<StackPanel Orientation="Vertical"
+                        Margin="20,15,0,0"
+                        Visibility="{Binding SealTypes, Mode=OneWay, Converter={StaticResource visibleCollapsedConverter}}">
+				<CheckBox IsChecked="{Binding SealPublicTypes}"
+							Content="{x:Static model:SR.SealPublicTypes}"
+							Padding="5,0,0,0"
+							VerticalAlignment="Center" HorizontalAlignment="Left" />
+			</StackPanel>
+			<CheckBox Content="{x:Static model:SR.DevirtualizeMethods}"
+						IsChecked="{Binding DevirtualizeMethods}"
+						Padding="5,0,0,0" Margin="0,15,0,0"
+						VerticalAlignment="Center" HorizontalAlignment="Left"/>
+			<StackPanel Orientation="Vertical"
+                        Margin="20,15,0,0"
+                        Visibility="{Binding DevirtualizeMethods, Mode=OneWay, Converter={StaticResource visibleCollapsedConverter}}">
+				<CheckBox IsChecked="{Binding DevirtualizePublicMethods}"
+							Content="{x:Static model:SR.DevirtualizePublicMethods}"
+							Padding="5,0,0,0"
+							VerticalAlignment="Center" HorizontalAlignment="Left" />
+			</StackPanel>
+		</StackPanel>
+		<wincor:TitledSeparator Title="{x:Static model:SR.Signing}"
+							   Image="{StaticResource Keys_ImageSource}"
+							   Margin="0,20,0,0" />
+		<StackPanel Orientation="Vertical"
+                    Margin="20,20,0,0">
+			<CheckBox Content="{x:Static model:SR.SignEnable}"
+						ToolTip="{x:Static model:SR.SignEnableToolTip}"
+						IsChecked="{Binding IsSigned}"
+						Padding="5,0,0,0"
+						VerticalAlignment="Center" HorizontalAlignment="Left" />
+			<TextBox Text="{Binding SignKeyFile, Mode=OneWay}"
+					 Margin="0,15,0,0"
+					 TextWrapping="Wrap"
+					 BorderThickness="0"
+					 Background="Transparent"
+					 IsReadOnly="True"
+					 IsReadOnlyCaretVisible="True"
+					 VerticalAlignment="Center"
+					 Visibility="{Binding SignKeyFile, Mode=OneWay, Converter={StaticResource visibleCollapsedConverter}}"/>
+			<StackPanel Orientation="Vertical"
+						IsEnabled="{Binding IsSigned, Mode=OneWay}">
+				<Button Content="{x:Static model:SR.SignBrowseForKeyFile}"
+						Style="{StaticResource LinkButton2}"
+						HorizontalAlignment="Left"
+						Focusable="False"
+						Command="{Binding SignBrowseKeyFileCommand, Mode=OneTime}"
+						Margin="0,10,0,0" />
+				<CheckBox Content="{x:Static model:SR.SignDelay}"
+						  IsChecked="{Binding IsDelaySign}"
+						  Margin="0,15,0,0" Padding="5,0,0,0"
+						  VerticalAlignment="Center" HorizontalAlignment="Left" />
+				<StackPanel Orientation="Horizontal" Margin="0,10,0,0"
+							Visibility="{Binding IsDelaySign, Mode=OneWay, Converter={StaticResource visibleCollapsedConverter}}">
+					<Image Source="{StaticResource Warning_ImageSource}"
+						   Width="16" Height="16"
+						   VerticalAlignment="Center" />
+					<TextBlock Text="{x:Static model:SR.SignDelayWarning}"
+							   TextWrapping="Wrap"
+							   Margin="10,0,0,0"/>
+				</StackPanel>
+			</StackPanel>
+		</StackPanel>
+	</StackPanel>
+</UserControl>

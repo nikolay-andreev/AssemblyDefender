@@ -1,0 +1,986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CF10211-9D80-423D-9610-97079336D76A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssemblyDefender.Net</RootNamespace>
+    <AssemblyName>AssemblyDefender.Net</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assembler.cs" />
+    <Compile Include="Attributes\Attribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\System.ComponentModel\BindableAttribute.cs" />
+    <Compile Include="Attributes\System.Diagnostics.CodeAnalysis\SuppressMessageAttribute.cs" />
+    <Compile Include="Attributes\System.Diagnostics\ConditionalAttribute.cs" />
+    <Compile Include="Attributes\System.Diagnostics\DebuggableAttribute.cs" />
+    <Compile Include="Attributes\System.Reflection\AssemblyCompanyAttribute.cs" />
+    <Compile Include="Attributes\System.Reflection\AssemblyConfigurationAttribute.cs" />
+    <Compile Include="Attributes\System.Reflection\AssemblyCopyrightAttribute.cs" />
+    <Compile Include="Attributes\System.Reflection\AssemblyCultureAttribute.cs" />
+    <Compile Include="Attributes\System.Reflection\AssemblyDescriptionAttribute.cs" />
+    <Compile Include="Attributes\System.Reflection\AssemblyProductAttribute.cs" />
+    <Compile Include="Attributes\System.Reflection\AssemblyTitleAttribute.cs" />
+    <Compile Include="Attributes\System.Reflection\AssemblyTrademarkAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\System.Reflection\ObfuscateAssemblyAttribute.cs" />
+    <Compile Include="Attributes\System.Reflection\ObfuscationAttribute.cs" />
+    <Compile Include="Attributes\System.Runtime.CompilerServices\SuppressIldasmAttribute.cs" />
+    <Compile Include="AssemblyCacheMode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Attributes\System\NonSerializedAttribute.cs" />
+    <Compile Include="Attributes\System\SerializableAttribute.cs" />
+    <Compile Include="CodeModel\Assembly\Assembly.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Assembly\AssemblyReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Assembly\AssemblyReferenceCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Assembly\IAssembly.cs" />
+    <Compile Include="CodeModel\Assembly\IAssemblySignature.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Assembly\ProcessorArchitecture.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Generic\ReferencedGenericParameter.cs" />
+    <Compile Include="CodeModel\Method\Referenced\ReferencedMethodParameterCollection.cs" />
+    <Compile Include="CodeModel\Module\ModuleBuildException.cs" />
+    <Compile Include="CodeModel\Module\ModuleBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModelUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Constant\ConstantInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Constant\ConstantType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModelException.cs" />
+    <Compile Include="AssemblyLoadException.cs" />
+    <Compile Include="EntityType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Event\IEventBase.cs" />
+    <Compile Include="CodeModel\Event\IEventSignature.cs" />
+    <Compile Include="CodeModel\Event\IEvent.cs" />
+    <Compile Include="CodeModel\Event\ReferencedEvent.cs" />
+    <Compile Include="CodeModel\Field\IField.cs" />
+    <Compile Include="CodeModel\Field\IFieldSignature.cs" />
+    <Compile Include="CodeModel\Field\ReferencedField.cs" />
+    <Compile Include="CodeModel\File\IFile.cs" />
+    <Compile Include="CodeModel\Generic\IGenericParameterBase.cs" />
+    <Compile Include="CodeModel\Generic\IGenericParameter.cs" />
+    <Compile Include="CodeModel\CustomAttribute\CustomAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\CustomAttribute\CustomAttributeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\CustomAttribute\CustomAttributeCtorArgumentCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\CustomAttribute\CustomAttributeHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\CustomAttribute\CustomAttributeNamedArgument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\CustomAttribute\CustomAttributeNamedArgumentCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\CustomAttribute\CustomAttributeNamedArgumentType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\CustomAttribute\CustomAttributeTypedArgument.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\CustomAttribute\ICustomAttributeProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyManager.cs" />
+    <Compile Include="ICodeNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IdentityParseException.cs" />
+    <Compile Include="MemberNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MemberNodeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MemberTable.cs" />
+    <Compile Include="MemberType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Event\EventDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Event\EventDeclarationCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Event\EventReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExportMethodBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Field\FieldDataType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Field\FieldDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Field\FieldDeclarationCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Field\FieldReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Field\FieldVisibilityFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\File\FileReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\File\FileReferenceCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Generic\GenericParameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Generic\GenericParameterCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Generic\GenericParameterConstraintCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Generic\GenericParameterVariance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\MemoryMappedMetadata.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NativeCodeException.cs" />
+    <Compile Include="Signature\ReflectionSignatureLexer.cs" />
+    <Compile Include="ResolveSignatureComparer.cs" />
+    <Compile Include="Signature\ISignature.cs" />
+    <Compile Include="CodeModel\Marshal\MarshalType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Marshal\Types\ByValArrayMarshalType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Marshal\Types\ByValTStrMarshalType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Marshal\Types\CustomMarshalType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Marshal\Types\LPArrayMarshalType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Marshal\Types\PrimitiveMarshalType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Marshal\Types\SafeArrayMarshalType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Marshal\UnmanagedType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Marshal\UnmanagedVariantType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\ICallSite.cs" />
+    <Compile Include="CodeModel\Method\IMethodBase.cs" />
+    <Compile Include="CodeModel\Method\IMethodParameterBase.cs" />
+    <Compile Include="CodeModel\Method\IMethodParameter.cs" />
+    <Compile Include="CodeModel\Method\IMethod.cs" />
+    <Compile Include="CodeModel\Method\IMethodSignature.cs" />
+    <Compile Include="CodeModel\Method\IL\ExceptionHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\ExceptionHandlerType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\FlowBranchType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\FlowControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\MethodBody.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\Instruction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\OpCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\OpCodes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\OpCodeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\OpCodeValues.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\OperandType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\IL\StackBehavior.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\MethodCallingConvention.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\MethodCodeTypeFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\MethodDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\MethodDeclarationCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\MethodOverrideCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\MethodParameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\MethodParameterCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\MethodReturnType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\MethodVisibilityFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\Referenced\ReferencedCallSite.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\Referenced\ReferencedMethod.cs" />
+    <Compile Include="CodeModel\Method\Referenced\ReferencedMethodParameter.cs" />
+    <Compile Include="CodeModel\Method\Signature\CallSite.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\Signature\GenericMethodReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\Signature\MethodReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\Signature\MethodSignature.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\Signature\MethodSignatureType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Method\Slot\MethodSlot.cs" />
+    <Compile Include="CodeModel\Method\Slot\MethodSlotEntry.cs" />
+    <Compile Include="CodeModel\Method\Slot\MethodSlotList.cs" />
+    <Compile Include="CodeModel\Module\IModule.cs" />
+    <Compile Include="CodeModel\Module\IModuleSignature.cs" />
+    <Compile Include="CodeModel\Module\Module.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Module\ModuleCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Module\ModuleImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Module\ModuleReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Module\ModuleReferenceCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeNodeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeNodeVisitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\PInvoke\PInvoke.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\PInvoke\UnmanagedCallingConvention.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\PInvoke\UnmanagedCharSet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\IPropertyBase.cs" />
+    <Compile Include="CodeModel\Property\IProperty.cs" />
+    <Compile Include="CodeModel\Property\IPropertySignature.cs" />
+    <Compile Include="CodeModel\Property\PropertyDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\PropertyDeclarationCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\PropertyParameterCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\PropertyReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\ReferencedProperty.cs" />
+    <Compile Include="Signature\ReflectionSignatureParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\ReflectionSignaturePrinter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ResolveReferenceException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Resource\Resource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Resource\ResourceCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Resource\ResourceVisibilityFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\SecurityAttribute\ISecurityAttributeProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\SecurityAttribute\SecurityAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\SecurityAttribute\SecurityAttributeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\Signature.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\SignatureBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\SignatureCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\SignatureComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\SignatureComparisonFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\SignaturePredicate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\SignaturePrinter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\SignatureSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\SignatureType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Signature\SignatureUtils.cs" />
+    <Compile Include="Signature\SignatureVisitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\ITypeBase.cs" />
+    <Compile Include="CodeModel\Type\IType.cs" />
+    <Compile Include="CodeModel\Type\ExportedTypeCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\ITypeSignature.cs" />
+    <Compile Include="CodeModel\Type\PrimitiveTypeCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Referenced\ReferencedArrayType.cs" />
+    <Compile Include="CodeModel\Type\Referenced\ReferencedByRefType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Referenced\ReferencedCustomModifier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Referenced\ReferencedFunctionPointer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Referenced\ReferencedGenericParameterType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Referenced\ReferencedGenericType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Referenced\ReferencedPinnedType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Referenced\ReferencedPointerType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Referenced\ReferencedType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\ArrayDimension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\ArrayType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\ByRefType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\CustomModifier.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\CustomModifierType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\FunctionPointer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\GenericParameterType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\GenericTypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\PinnedType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\PointerType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\TypeReference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\TypeSignature.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\Signature\TypeElementCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\TypeCharSetFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\TypeDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\TypeDeclarationCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\TypeInterfaceCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\TypeLayoutFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\TypeVisibilityFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CorHeaderBuilder.cs" />
+    <Compile Include="CorMainStubBuilder.cs" />
+    <Compile Include="Framework\DotNetFramework.cs" />
+    <Compile Include="Framework\FrameworkType.cs" />
+    <Compile Include="Framework\MicrosoftNetFramework.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\SilverlightFramework.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fusion\AssemblyCache.cs" />
+    <Compile Include="Fusion\AssemblyCacheType.cs" />
+    <Compile Include="Fusion\AssemblyEnumerator.cs" />
+    <Compile Include="Fusion\AssemblyName.cs" />
+    <Compile Include="Fusion\UnmanagedApi\ASM_CACHE_FLAGS.cs" />
+    <Compile Include="Fusion\UnmanagedApi\ASM_CMP_FLAGS.cs" />
+    <Compile Include="Fusion\UnmanagedApi\ASM_DISPLAY_FLAGS.cs" />
+    <Compile Include="Fusion\UnmanagedApi\ASM_NAME_PROPERTY.cs" />
+    <Compile Include="Fusion\UnmanagedApi\ASSEMBLYINFO_FLAG.cs" />
+    <Compile Include="Fusion\UnmanagedApi\ASSEMBLY_INFO.cs" />
+    <Compile Include="Fusion\UnmanagedApi\FusionNative.cs" />
+    <Compile Include="Fusion\UnmanagedApi\FUSION_INSTALL_REFERENCE.cs" />
+    <Compile Include="Fusion\UnmanagedApi\IASSEMBLYCACHE_INSTALL_FLAG.cs" />
+    <Compile Include="Fusion\UnmanagedApi\IASSEMBLYCACHE_UNINSTALL_DISPOSITION.cs" />
+    <Compile Include="Fusion\UnmanagedApi\Interfaces\IAssemblyCache.cs" />
+    <Compile Include="Fusion\UnmanagedApi\Interfaces\IAssemblyCacheItem.cs" />
+    <Compile Include="Fusion\UnmanagedApi\Interfaces\IAssemblyEnum.cs" />
+    <Compile Include="Fusion\UnmanagedApi\Interfaces\IAssemblyName.cs" />
+    <Compile Include="Fusion\UnmanagedApi\QUERYASMINFO_FLAG.cs" />
+    <Compile Include="Fusion\UnmanagedApi\STREAM_FORMAT.cs" />
+    <Compile Include="IL\ILBlock.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IL\ILBlockType.cs" />
+    <Compile Include="IL\ILBody.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IL\ILBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IL\ILLoader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IL\ILException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IL\StackSizeCalculator.cs" />
+    <Compile Include="IL\ILInstruction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IL\ILLabel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IL\ILNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IL\ILNodeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IL\ILExceptionFilterBlock.cs" />
+    <Compile Include="IL\ILExceptionHandlerBlock.cs" />
+    <Compile Include="IL\ILTryBlock.cs" />
+    <Compile Include="Metadata\CodedTokenInfo.cs" />
+    <Compile Include="Metadata\CodedTokenType.cs" />
+    <Compile Include="Metadata\IMetadata.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\MetadataBuilder.cs" />
+    <Compile Include="Metadata\MetadataPtrTable.cs" />
+    <Compile Include="Metadata\MetadataColumnInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\MetadataConstants.cs" />
+    <Compile Include="Metadata\HeapOffsetFlags.cs" />
+    <Compile Include="Metadata\MetadataSchema.cs" />
+    <Compile Include="Metadata\MetadataTableInfo.cs" />
+    <Compile Include="Metadata\MetadataTable`1.cs" />
+    <Compile Include="Metadata\MetadataToken.cs" />
+    <Compile Include="Metadata\MetadataTable.cs" />
+    <Compile Include="Metadata\MetadataTableStream.cs" />
+    <Compile Include="Metadata\ElementType.cs" />
+    <Compile Include="Metadata\ILExceptionFlag.cs" />
+    <Compile Include="Metadata\ILMethodFlags.cs" />
+    <Compile Include="Metadata\ILMethodSect.cs" />
+    <Compile Include="Metadata\MetadataBlobStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\MetadataException.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\MetadataExternalStream.cs" />
+    <Compile Include="Metadata\MetadataGuidStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\MetadataScope.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\MetadataStringStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\MetadataTableType.cs" />
+    <Compile Include="Metadata\MetadataTokenType.cs" />
+    <Compile Include="Metadata\MetadataUserStringStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\MetadataUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\SignatureType.cs" />
+    <Compile Include="Metadata\SortableTableType.cs" />
+    <Compile Include="Metadata\TableCompressionInfo.cs" />
+    <Compile Include="Metadata\TableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\AssemblyOS\AssemblyOSRow.cs" />
+    <Compile Include="Metadata\Tables\AssemblyOS\AssemblyOSTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\AssemblyProcessor\AssemblyProcessorRow.cs" />
+    <Compile Include="Metadata\Tables\AssemblyProcessor\AssemblyProcessorTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\AssemblyRefOS\AssemblyRefOSRow.cs" />
+    <Compile Include="Metadata\Tables\AssemblyRefOS\AssemblyRefOSTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\AssemblyRefProcessor\AssemblyRefProcessorRow.cs" />
+    <Compile Include="Metadata\Tables\AssemblyRefProcessor\AssemblyRefProcessorTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\AssemblyRef\AssemblyRefRow.cs" />
+    <Compile Include="Metadata\Tables\AssemblyRef\AssemblyRefTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Assembly\AssemblyFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Assembly\AssemblyRow.cs" />
+    <Compile Include="Metadata\Tables\Assembly\AssemblyTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Assembly\HashAlgorithm.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\ClassLayout\ClassLayoutRow.cs" />
+    <Compile Include="Metadata\Tables\ClassLayout\ClassLayoutTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\ClassLayout\ClassLayoutTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\Constant\ConstantRow.cs" />
+    <Compile Include="Metadata\Tables\Constant\ConstantTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Constant\ConstantTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\Constant\ConstantTableType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\CustomAttribute\CustomAttributeRow.cs" />
+    <Compile Include="Metadata\Tables\CustomAttribute\CustomAttributeTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\CustomAttribute\CustomAttributeTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\DeclSecurity\DeclSecurityRow.cs" />
+    <Compile Include="Metadata\Tables\DeclSecurity\DeclSecurityTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\DeclSecurity\DeclSecurityTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\DeclSecurity\SecurityAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\ENCLog\ENCLogRow.cs" />
+    <Compile Include="Metadata\Tables\ENCLog\ENCLogTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\ENCMap\ENCMapRow.cs" />
+    <Compile Include="Metadata\Tables\ENCMap\ENCMapTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\EventMap\EventMapRow.cs" />
+    <Compile Include="Metadata\Tables\EventMap\EventMapTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\EventMap\EventMapTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\EventPtr\EventPtrTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Event\EventFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Event\EventRow.cs" />
+    <Compile Include="Metadata\Tables\Event\EventTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\ExportedType\ExportedTypeRow.cs" />
+    <Compile Include="Metadata\Tables\ExportedType\ExportedTypeTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\FieldLayout\FieldLayoutRow.cs" />
+    <Compile Include="Metadata\Tables\FieldLayout\FieldLayoutTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\FieldLayout\FieldLayoutTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\FieldMarshal\FieldMarshalRow.cs" />
+    <Compile Include="Metadata\Tables\FieldMarshal\FieldMarshalTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\FieldMarshal\FieldMarshalTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\FieldPtr\FieldPtrTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\FieldRVA\FieldRVARow.cs" />
+    <Compile Include="Metadata\Tables\FieldRVA\FieldRVATable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\FieldRVA\FieldRVATableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\Field\FieldFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Field\FieldRow.cs" />
+    <Compile Include="Metadata\Tables\Field\FieldTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\File\FileFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\File\FileRow.cs" />
+    <Compile Include="Metadata\Tables\File\FileTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\GenericParamConstraint\GenericParamConstraintRow.cs" />
+    <Compile Include="Metadata\Tables\GenericParamConstraint\GenericParamConstraintTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\GenericParamConstraint\GenericParamConstraintTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\GenericParam\GenericParamFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\GenericParam\GenericParamRow.cs" />
+    <Compile Include="Metadata\Tables\GenericParam\GenericParamTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\GenericParam\GenericParamTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\ImplMap\ImplMapFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\ImplMap\ImplMapRow.cs" />
+    <Compile Include="Metadata\Tables\ImplMap\ImplMapTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\ImplMap\ImplMapTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\InterfaceImpl\InterfaceImplRow.cs" />
+    <Compile Include="Metadata\Tables\InterfaceImpl\InterfaceImplTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\InterfaceImpl\InterfaceImplTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\ManifestResource\ManifestResourceFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\ManifestResource\ManifestResourceRow.cs" />
+    <Compile Include="Metadata\Tables\ManifestResource\ManifestResourceTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\MemberRef\MemberRefRow.cs" />
+    <Compile Include="Metadata\Tables\MemberRef\MemberRefTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\MethodImpl\MethodImplRow.cs" />
+    <Compile Include="Metadata\Tables\MethodImpl\MethodImplTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\MethodImpl\MethodImplTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\MethodPtr\MethodPtrTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\MethodSemantics\MethodSemanticFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\MethodSemantics\MethodSemanticsRow.cs" />
+    <Compile Include="Metadata\Tables\MethodSemantics\MethodSemanticsTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\MethodSemantics\MethodSemanticsTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\MethodSpec\MethodSpecRow.cs" />
+    <Compile Include="Metadata\Tables\MethodSpec\MethodSpecTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Method\MethodFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Method\MethodImplFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Method\MethodRow.cs" />
+    <Compile Include="Metadata\Tables\Method\MethodTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\ModuleRef\ModuleRefRow.cs" />
+    <Compile Include="Metadata\Tables\ModuleRef\ModuleRefTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Module\ModuleRow.cs" />
+    <Compile Include="Metadata\Tables\Module\ModuleTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\NestedClass\NestedClassRow.cs" />
+    <Compile Include="Metadata\Tables\NestedClass\NestedClassTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\NestedClass\NestedClassTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\ParamPtr\ParamPtrTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Param\ParamFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Param\ParamRow.cs" />
+    <Compile Include="Metadata\Tables\Param\ParamTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\PropertyMap\PropertyMapRow.cs" />
+    <Compile Include="Metadata\Tables\PropertyMap\PropertyMapTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\PropertyMap\PropertyMapTableSortComparer.cs" />
+    <Compile Include="Metadata\Tables\PropertyPtr\PropertyPtrTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Property\PropertyFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\Property\PropertyRow.cs" />
+    <Compile Include="Metadata\Tables\Property\PropertyTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\StandAloneSig\StandAloneSigRow.cs" />
+    <Compile Include="Metadata\Tables\StandAloneSig\StandAloneSigTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\TypeDef\TypeDefFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\TypeDef\TypeDefRow.cs" />
+    <Compile Include="Metadata\Tables\TypeDef\TypeDefTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\TypeRef\TypeRefRow.cs" />
+    <Compile Include="Metadata\Tables\TypeRef\TypeRefTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Metadata\Tables\TypeSpec\TypeSpecRow.cs" />
+    <Compile Include="Metadata\Tables\TypeSpec\TypeSpecTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CorFlags.cs" />
+    <Compile Include="CorHeader.cs" />
+    <Compile Include="Metadata\MetadataColumnType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Signature\SignaturePrintingFlags.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StrongName\StrongNameGenerationFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StrongName\StrongNameKeyGenFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StrongName\StrongNameNative.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StrongName\StrongNameSignatureBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StrongName\StrongNameUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SymbolStore\SymbolBinder.cs" />
+    <Compile Include="SymbolStore\SymbolDocument.cs" />
+    <Compile Include="SymbolStore\SymbolDocumentWriter.cs" />
+    <Compile Include="SymbolStore\SymbolMethod.cs" />
+    <Compile Include="SymbolStore\SymbolNamespace.cs" />
+    <Compile Include="SymbolStore\SymbolReader.cs" />
+    <Compile Include="SymbolStore\SymbolScope.cs" />
+    <Compile Include="SymbolStore\SymbolVariable.cs" />
+    <Compile Include="SymbolStore\SymbolWriter.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\CorSymAddrKind.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\CorSymSearchPolicyAttributes.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\IMAGE_DEBUG_DIRECTORY.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\SymbolStoreNative.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\SYMLINEDELTA.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymENCUnmanagedMethod.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedBinder.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedBinder2.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedBinder3.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedConstant.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedDispose.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedDocument.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedDocumentWriter.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedENCUpdate.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedMethod.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedNamespace.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedReader.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedReader2.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedReaderSymbolSearchInfo.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedScope.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedScope2.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedSourceServerModule.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedSymbolSearchInfo.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedVariable.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedWriter.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedWriter2.cs" />
+    <Compile Include="SymbolStore\UnmanagedApi\Interfaces\ISymUnmanagedWriter3.cs" />
+    <Compile Include="VTableFixup\VTableFixupBuilder.cs" />
+    <Compile Include="VTableFixup\VTableFixupEntry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VTableFixup\VTableFixupTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VTableFixup\VTableFixupType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyDefender.Common\AssemblyDefender.Common.csproj">
+      <Project>{1357fc2e-23f0-4111-b4c9-9d5e083033e6}</Project>
+      <Name>AssemblyDefender.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.PE\AssemblyDefender.PE.csproj">
+      <Project>{8246299c-b667-4ae9-959c-586c630a3af1}</Project>
+      <Name>AssemblyDefender.PE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{28915E16-9017-4C2D-9D59-EDAA65DE844E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssemblyDefenderBuilder</RootNamespace>
+    <AssemblyName>AssemblyDefenderBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyDefender.Baml\AssemblyDefender.Baml.csproj">
+      <Project>{4C6EFFCE-2D3E-4FF5-90BA-C37AADCEDED1}</Project>
+      <Name>CodeModel.Baml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.Common\AssemblyDefender.Common.csproj">
+      <Project>{1357fc2e-23f0-4111-b4c9-9d5e083033e6}</Project>
+      <Name>AssemblyDefender.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.Net\AssemblyDefender.Net.csproj">
+      <Project>{3CF10211-9D80-423D-9610-97079336D76A}</Project>
+      <Name>CodeModel.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.PE\AssemblyDefender.PE.csproj">
+      <Project>{8246299C-B667-4AE9-959C-586C630A3AF1}</Project>
+      <Name>CodeModel.PE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender\AssemblyDefender.csproj">
+      <Project>{5BC121EF-CBE5-4E5D-AE56-E17F3B617250}</Project>
+      <Name>AssemblyDefender</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

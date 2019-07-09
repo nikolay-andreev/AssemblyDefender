@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="AssemblyDefender.UI.Shell.Project.ProjectShellView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:shell="clr-namespace:AssemblyDefender.UI.Shell"
+             xmlns:project="clr-namespace:AssemblyDefender.UI.Shell.Project"
+			 xmlns:model="clr-namespace:AssemblyDefender.UI.Model;assembly=AssemblyDefender.UI.Model"
+			 xmlns:projectModel="clr-namespace:AssemblyDefender.UI.Model.Project;assembly=AssemblyDefender.UI.Model"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="600">
+	<Grid Margin="2,0,2,0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition x:Name="toolRow" Height="250" MinHeight="50" />
+		</Grid.RowDefinitions>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="260" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Border Style="{StaticResource MainBorder}"
+                    Background="White">
+				<project:NavigationTreeView />
+			</Border>
+			<GridSplitter Grid.Column="1"
+                          Width="4" Background="Transparent"
+                          HorizontalAlignment="Center" VerticalAlignment="Stretch"
+                          ResizeDirection="Columns"
+                          IsTabStop="False"
+                          Focusable="False"
+                          ShowsPreview="True" />
+			<Border Grid.Column="2"
+                    Style="{StaticResource MainBorder}"
+                    Background="White">
+				<DockPanel 
+						   Focusable="False">
+					<DockPanel DockPanel.Dock="Top" Margin="15,10,15,20">
+						<StackPanel DockPanel.Dock="Top" Orientation="Horizontal"
+									DataContext="{Binding SelectedNode}">
+							<Image Source="{Binding Image, Mode=OneTime, Converter={StaticResource imageTypeToSourceConverter}}"
+								   Width="16" Height="16"
+								   VerticalAlignment="Center" HorizontalAlignment="Center" />
+							<TextBlock x:Name="ItemText"
+									   Text="{Binding Caption, Mode=OneWay}"
+									   Foreground="Black"
+									   FontWeight="Bold"
+									   Margin="8,0,0,0"
+									   VerticalAlignment="Center" />
+						</StackPanel>
+						<Separator DockPanel.Dock="Bottom"
+									BorderBrush="{StaticResource BorderColor}"
+									Margin="0,10,0,0"/>
+					</DockPanel>
+					<ScrollViewer Focusable="False"
+								  CanContentScroll="True"
+								  VerticalScrollBarVisibility="Auto">
+						<ContentControl Content="{Binding SelectedWorkspace}" Margin="15,0,15,25">
+							<ContentControl.Resources>
+								<!-- Project -->
+								<DataTemplate DataType="{x:Type projectModel:ProjectDetailsViewModel}">
+									<project:ProjectView />
+								</DataTemplate>
+
+								<!-- Assembly -->
+								<DataTemplate DataType="{x:Type projectModel:AssemblyDetailsViewModel}">
+									<project:AssemblyView />
+								</DataTemplate>
+								<DataTemplate DataType="{x:Type projectModel:AssemblyInvalidViewModel}">
+									<project:AssemblyInvalidView />
+								</DataTemplate>
+
+								<!-- Module -->
+								<DataTemplate DataType="{x:Type projectModel:ModuleDetailsViewModel}">
+									<project:ModuleView />
+								</DataTemplate>
+
+								<!-- Namespace -->
+								<DataTemplate DataType="{x:Type projectModel:NamespaceDetailsViewModel}">
+									<project:NamespaceView />
+								</DataTemplate>
+
+								<!-- Type -->
+								<DataTemplate DataType="{x:Type projectModel:TypeDetailsViewModel}">
+									<project:TypeView />
+								</DataTemplate>
+
+								<!-- Method -->
+								<DataTemplate DataType="{x:Type projectModel:MethodDetailsViewModel}">
+									<project:MethodView />
+								</DataTemplate>
+
+								<!-- Field -->
+								<DataTemplate DataType="{x:Type projectModel:FieldDetailsViewModel}">
+									<project:FieldView />
+								</DataTemplate>
+
+								<!-- Property -->
+								<DataTemplate DataType="{x:Type projectModel:PropertyDetailsViewModel}">
+									<project:PropertyView />
+								</DataTemplate>
+
+								<!-- Event -->
+								<DataTemplate DataType="{x:Type projectModel:EventDetailsViewModel}">
+									<project:EventView />
+								</DataTemplate>
+
+								<!-- ResourceFolder -->
+								<DataTemplate DataType="{x:Type projectModel:ResourceFolderDetailsViewModel}">
+									<project:ResourceFolderView />
+								</DataTemplate>
+
+							</ContentControl.Resources>
+						</ContentControl>
+					</ScrollViewer>
+				</DockPanel>
+			</Border>
+		</Grid>
+		<GridSplitter x:Name="toolSplitter"  Grid.Row="1"
+                      Height="4" Background="Transparent"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                      ResizeDirection="Rows"
+                      IsTabStop="False"
+                      Focusable="False"
+                      ShowsPreview="True"
+                      IsEnabled="{Binding SelectedTool, Mode=OneWay, Converter={StaticResource boolConverter}}"
+                      IsEnabledChanged="toolSplitter_IsEnabledChanged" />
+		<Border Grid.Row="2"
+				Visibility="{Binding SelectedTool, Mode=OneWay, Converter={StaticResource visibleCollapsedConverter}}">
+			<project:ToolView DataContext="{Binding SelectedTool, Mode=OneWay}"/>
+		</Border>
+	</Grid>
+</UserControl>

@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C6EFFCE-2D3E-4FF5-90BA-C37AADCEDED1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AssemblyDefender.Baml</RootNamespace>
+    <AssemblyName>AssemblyDefender.Baml</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BamlException.cs" />
+    <Compile Include="BamlImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BamlImageBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BamlImageLoader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BamlNode.cs" />
+    <Compile Include="BamlNodeType.cs" />
+    <Compile Include="BamlUtils.cs" />
+    <Compile Include="BamlBlock.cs" />
+    <Compile Include="CodeModel\Assembly\BamlAssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Assembly\BamlAssemblyKind.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Assembly\BamlKnownAssembly.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Assembly\BamlKnownAssemblyCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Assembly\IBamlAssembly.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\BamlConnectionId.cs" />
+    <Compile Include="CodeModel\BamlLineNumberAndPosition.cs" />
+    <Compile Include="CodeModel\BamlLinePosition.cs" />
+    <Compile Include="CodeModel\BamlLiteralContent.cs" />
+    <Compile Include="CodeModel\BamlPIMapping.cs" />
+    <Compile Include="CodeModel\BamlPresentationOptionsAttribute.cs" />
+    <Compile Include="CodeModel\BamlRoutedEvent.cs" />
+    <Compile Include="CodeModel\BamlXmlnsProperty.cs" />
+    <Compile Include="CodeModel\ConstructorParameter\BamlConstructorParameters.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\ConstructorParameter\BamlConstructorParameterType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Content\BamlContentProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Content\BamlDefAttribute.cs" />
+    <Compile Include="CodeModel\Content\BamlDefAttributeKeyString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Content\BamlDefAttributeKeyType.cs" />
+    <Compile Include="CodeModel\Content\BamlDeferableContent.cs" />
+    <Compile Include="CodeModel\BamlDocument.cs" />
+    <Compile Include="CodeModel\Element\BamlElementFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Element\BamlElement.cs" />
+    <Compile Include="CodeModel\Element\BamlKeyElement.cs" />
+    <Compile Include="CodeModel\Element\BamlNamedElement.cs" />
+    <Compile Include="CodeModel\Extension\BamlExtension.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Extension\BamlExtensionPropertyValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Extension\BamlExtensionResourceValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Extension\BamlExtensionStringValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Extension\BamlExtensionType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Extension\BamlExtensionTypeValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Extension\BamlExtensionValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Extension\BamlExtensionValueType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlKnownProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlKnownPropertyCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlProperty.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyArray.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyBoolValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlPropertyComplex.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyCustom.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyCustomValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlPropertyIDictionary.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyIList.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyInfo.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyKind.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlPropertyStringReference.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyTypeReference.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyUsage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlPropertyValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlPropertyValueType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlPropertyValueWithProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Property\BamlPropertyWithConverter.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyWithExtension.cs" />
+    <Compile Include="CodeModel\Property\BamlPropertyWithStaticResourceId.cs" />
+    <Compile Include="CodeModel\Property\IBamlProperty.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\StaticResource\BamlOptimizedStaticResource.cs" />
+    <Compile Include="CodeModel\StaticResource\BamlOptimizedStaticResourceFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\StaticResource\BamlStaticResourceId.cs" />
+    <Compile Include="CodeModel\StaticResource\BamlStaticResource.cs" />
+    <Compile Include="CodeModel\Strings\BamlKnownString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Strings\BamlKnownStringCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Strings\BamlStringInfo.cs" />
+    <Compile Include="CodeModel\Strings\BamlStringKind.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Strings\IBamlString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Text\BamlText.cs" />
+    <Compile Include="CodeModel\Text\BamlTextWithConverter.cs" />
+    <Compile Include="CodeModel\Text\BamlTextWithId.cs" />
+    <Compile Include="CodeModel\Type\BamlKnownType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\BamlKnownTypeCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\BamlTypeFlags.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\BamlTypeInfo.cs" />
+    <Compile Include="CodeModel\Type\BamlTypeKind.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CodeModel\Type\BamlTypeSerializerInfo.cs" />
+    <Compile Include="CodeModel\Type\IBamlType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PackUriAuthority.cs" />
+    <Compile Include="PackUri.cs" />
+    <Compile Include="RecordType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XamlParseUtils.cs" />
+    <Compile Include="XamlTypeNameParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SystemResourceKeyID.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VersionPair.cs" />
+    <Compile Include="XamlTypeName.cs" />
+    <Compile Include="XamlTypeNameLexer.cs" />
+    <Compile Include="XamlTypeNameLexerToken.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyDefender.Common\AssemblyDefender.Common.csproj">
+      <Project>{1357fc2e-23f0-4111-b4c9-9d5e083033e6}</Project>
+      <Name>AssemblyDefender.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.Net\AssemblyDefender.Net.csproj">
+      <Project>{3cf10211-9d80-423d-9610-97079336d76a}</Project>
+      <Name>AssemblyDefender.Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AssemblyDefender.PE\AssemblyDefender.PE.csproj">
+      <Project>{8246299c-b667-4ae9-959c-586c630a3af1}</Project>
+      <Name>AssemblyDefender.PE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

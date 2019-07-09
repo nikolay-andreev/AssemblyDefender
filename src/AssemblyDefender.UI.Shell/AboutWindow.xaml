@@ -1,0 +1,45 @@
+﻿<wincor:MvvmWindow x:Class="AssemblyDefender.UI.Shell.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:wincor="clr-namespace:AssemblyDefender.UI;assembly=AssemblyDefender.UI"
+		xmlns:shell="clr-namespace:AssemblyDefender.UI.Shell"
+		xmlns:model="clr-namespace:AssemblyDefender.UI.Model;assembly=AssemblyDefender.UI.Model"
+        mc:Ignorable="d"
+		Title="{x:Static model:SR.AboutWindowCaption}"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        Width="520"
+		Icon="{StaticResource LogoIcon_ImageSource}"
+		wincor:WindowExtensions.DialogResult="{Binding DialogResult}"
+        d:DesignHeight="370" d:DesignWidth="300">
+	<DockPanel>
+		<StackPanel DockPanel.Dock="Top"
+					Margin="10,15,10,15">
+			<Image Source="{Binding LogoHeaderImage, Mode=OneTime, Converter={StaticResource imageTypeToSourceConverter}}"
+					   VerticalAlignment="Center" />
+			<StackPanel Orientation="Horizontal" Margin="0,20,0,0" >
+				<TextBlock Text="{x:Static model:SR.VersionLabel}" />
+				<TextBlock Text="{Binding Version, Mode=OneTime}"
+								Margin="5,0,0,0" />
+			</StackPanel>
+            <TextBlock Text="{x:Static model:SR.CopyrightReserved}"
+						Margin="0,5,0,0" />
+        </StackPanel>
+		<Border DockPanel.Dock="Bottom"
+				Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+				VerticalAlignment="Bottom"
+				Padding="10">
+			<Button Content="{x:Static model:SR.OK}"
+				Command="{Binding DialogCloseCommand, Mode=OneWay}"
+				CommandParameter="{wincor:BoolValue True}"
+				IsDefault="True"  IsCancel="True"
+				Padding="4,2,4,2"
+				MinWidth="70"
+				VerticalAlignment="Center" HorizontalAlignment="Right" />
+		</Border>
+	</DockPanel>
+</wincor:MvvmWindow>

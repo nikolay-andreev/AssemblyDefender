@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1357FC2E-23F0-4111-B4C9-9D5E083033E6}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>AssemblyDefender.Common</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AssemblyDefender.Common</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>false</SignAssembly>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>512</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArgumentNullOrEmptyException.cs" />
+    <Compile Include="ArrayUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BitUtils.cs" />
+    <Compile Include="BufferUtils.cs" />
+    <Compile Include="Collections\ByteArrayEqualityComparer.cs" />
+    <Compile Include="Collections\CollectionUtils.cs" />
+    <Compile Include="Collections\ArrayEnumerator.cs" />
+    <Compile Include="Collections\ConvertEnumerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\TryConvertEnumerator.cs" />
+    <Compile Include="Collections\ReadOnlyList.cs" />
+    <Compile Include="Collections\Enumerator.cs" />
+    <Compile Include="Collections\IReadOnlyList.cs" />
+    <Compile Include="Collections\ListNavigator.cs" />
+    <Compile Include="Collections\PriorityQueue.cs" />
+    <Compile Include="CommandLine\Argument.cs" />
+    <Compile Include="CommandLine\Arguments\BoolArgument.cs" />
+    <Compile Include="CommandLine\ArgumentUsage.cs" />
+    <Compile Include="CommandLine\CommandLineParser.cs" />
+    <Compile Include="CommandLine\Arguments\Int32Argument.cs" />
+    <Compile Include="CommandLine\Arguments\LookupArgument.cs" />
+    <Compile Include="CommandLine\Arguments\StringArgument.cs" />
+    <Compile Include="CommandLine\CommandLinePrinter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CommandLine\CommandLineException.cs" />
+    <Compile Include="CompareUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cryptography\StrongCryptoUtils.cs" />
+    <Compile Include="Cryptography\CryptoUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cryptography\PKCS12.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cryptography\StrongCryptoStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cryptography\StrongCryptoStreamMode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cryptography\WeakCryptoStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataEventArgs.cs" />
+    <Compile Include="IO\Blob.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\BlobAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\BlobBinarySource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\BlobList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\BlobStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\CompressionUtils.cs" />
+    <Compile Include="IO\BlobSet.cs" />
+    <Compile Include="IO\DictionaryBlob.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\DirectoryUtils.cs" />
+    <Compile Include="IO\FileBinarySource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\FileUtils.cs" />
+    <Compile Include="Serialization\ObjectSerializer.cs" />
+    <Compile Include="IO\IBinaryAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IBinarySerialize.cs" />
+    <Compile Include="IO\IBinarySource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\MemoryMappedFileAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\MemoryMappedFileBinarySource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\MemoryMappedFileStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\NonClosingStream.cs" />
+    <Compile Include="IO\BinaryUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\StreamAccessor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Serialization\StringSerializer.cs" />
+    <Compile Include="MRUList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NumericUtils.cs" />
+    <Compile Include="RandomUtils.cs" />
+    <Compile Include="Resources\ResourceReaderEx.cs" />
+    <Compile Include="Resources\ResourceTypeCode.cs" />
+    <Compile Include="Resources\ResourceUtils.cs" />
+    <Compile Include="Collections\HashList.cs" />
+    <Compile Include="ConvertUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CoreUtils.cs" />
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StringGenerator.cs" />
+    <Compile Include="StringLogicalComparer.cs" />
+    <Compile Include="TupleStruct.cs" />
+    <Compile Include="Wildcard.cs" />
+    <Compile Include="ImageUtils.cs" />
+    <Compile Include="HRESULT.cs" />
+    <Compile Include="IO\FileWatcher.cs" />
+    <Compile Include="IO\RangeStream.cs" />
+    <Compile Include="Text\StringReaderEx.cs" />
+    <Compile Include="Text\TextPoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Text\TextWriterEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Text\BufferSpan.cs" />
+    <Compile Include="IO\PathUtils.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Text\StringBuilderEx.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="StringUtils.cs" />
+    <Compile Include="Text\TextReaderEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Xml\XmlUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

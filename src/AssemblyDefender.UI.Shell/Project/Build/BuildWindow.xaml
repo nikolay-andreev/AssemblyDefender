@@ -1,0 +1,34 @@
+﻿<wincor:MvvmWindow x:Class="AssemblyDefender.UI.Shell.Project.BuildWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:wincor="clr-namespace:AssemblyDefender.UI;assembly=AssemblyDefender.UI"
+        xmlns:shell="clr-namespace:AssemblyDefender.UI.Shell"
+        xmlns:project="clr-namespace:AssemblyDefender.UI.Shell.Project"
+		xmlns:model="clr-namespace:AssemblyDefender.UI.Model;assembly=AssemblyDefender.UI.Model"
+		xmlns:projectModel="clr-namespace:AssemblyDefender.UI.Model.Project;assembly=AssemblyDefender.UI.Model"
+        mc:Ignorable="d"
+		Title="{Binding WindowTitle, Mode=OneWay}"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        Width="450"
+		Icon="{StaticResource LogoIcon_ImageSource}"
+		wincor:WindowExtensions.DialogResult="{Binding DialogResult}"
+        d:DesignHeight="240" d:DesignWidth="300">
+	<ContentControl Content="{Binding Workspace, Mode=OneWay}">
+		<ContentControl.Resources>
+			<DataTemplate DataType="{x:Type projectModel:BuildProgressViewModel}">
+				<project:BuildProgressView />
+			</DataTemplate>
+			<DataTemplate DataType="{x:Type projectModel:BuildErrorViewModel}">
+				<project:BuildErrorView />
+			</DataTemplate>
+			<DataTemplate DataType="{x:Type projectModel:BuildUnknownErrorViewModel}">
+				<project:BuildUnknownErrorView />
+			</DataTemplate>
+		</ContentControl.Resources>
+	</ContentControl>
+</wincor:MvvmWindow>
